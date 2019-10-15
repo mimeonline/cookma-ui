@@ -6,7 +6,7 @@
           <q-item>
             <q-item-section avatar>
               <q-avatar>
-                <img src="https://cdn.quasar.dev/img/avatar2.jpg">
+                <img src="https://cdn.pixabay.com/photo/2017/01/31/19/07/avatar-2026510_1280.png">
               </q-avatar>
             </q-item-section>
 
@@ -15,7 +15,7 @@
               <q-item-label caption>Subhead</q-item-label>
             </q-item-section>
           </q-item>
-          <img src="https://cdn.quasar.dev/img/mountains.jpg">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Spaghetti_bolognese_pasta.jpg/1600px-Spaghetti_bolognese_pasta.jpg">
 
           <q-card-section>
             <div class="text-h6">Our Changing Planet</div>
@@ -31,16 +31,16 @@
           <q-item>
             <q-item-section avatar>
               <q-avatar>
-                <img src="https://cdn.quasar.dev/img/avatar2.jpg">
+                <img src="https://cdn.quasar.dev/img/boy-avatar.png">
               </q-avatar>
             </q-item-section>
 
             <q-item-section>
-              <q-item-label>Schweinebraten mit Knödel</q-item-label>
+              <q-item-label>Schweinekrustenbraten mit Knödel</q-item-label>
               <q-item-label caption>Subhead</q-item-label>
             </q-item-section>
           </q-item>
-          <img src="https://cdn.quasar.dev/img/parallax2.jpg">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Krustenbraten_mit_Dunkelbierso%C3%9Fe.jpg">
           <q-card-section>
             <div class="text-h6">Our Changing Planet</div>
             <div class="text-subtitle2">by John Doe</div>
