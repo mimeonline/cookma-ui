@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-card class="my-card q-mt-lg">
+    <q-card class="q-mt-lg">
       <q-item>
         <q-item-section avatar>
           <q-avatar>

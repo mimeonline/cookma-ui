@@ -1,5 +1,9 @@
 <template>
   <q-page>
+    <div class="row">
+      <RecipeCreate></RecipeCreate>
+    </div>
+
     <div class="row justify-center">
       <div
         class="col-auto full-width"
@@ -14,6 +18,7 @@
 
 <script>
 import Card from './Card.vue'
+import RecipeCreate from './RecipeCreate'
 
 export default {
   name: 'Timeline',
@@ -26,13 +31,11 @@ export default {
     this.$store.dispatch('timeline/timelineCards')
   },
   components: {
-    Card
+    Card,
+    RecipeCreate
   }
 }
 </script>
 
 <style lang="sass" scoped>
-.my-card
-  width: 100%
-  max-width: 500px
 </style>

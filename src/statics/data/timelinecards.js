@@ -3,7 +3,7 @@ export const timelinecards = {
     {
       user: {
         name: 'Michael',
-        avatar: 'https: //cdn.pixabay.com/photo/2017/01/31/19/07/avatar-2026510_1280.png'
+        avatar: 'https://cdn.pixabay.com/photo/2017/01/31/19/07/avatar-2026510_1280.png'
       },
       recipe: {
         id: 10,
@@ -30,7 +30,7 @@ export const timelinecards = {
     {
       user: {
         name: 'Hannes',
-        avatar: 'https: //cdn.quasar.dev/img/boy-avatar.png'
+        avatar: 'https://cdn.quasar.dev/img/boy-avatar.png'
       },
       recipe: {
         id: 20,
