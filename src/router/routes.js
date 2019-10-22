@@ -1,8 +1,21 @@
+import MyLayout from 'layouts/MyLayout'
+import Timeline from 'pages/timeline/Timeline'
+import RecipeCreate from 'pages/timeline/RecipeCreate'
+
 const routes = [
   {
     path: '/',
-    component: () => import('layouts/MyLayout.vue'),
-    children: [{ path: '', component: () => import('pages/timeline/Timeline.vue') }]
+    component: MyLayout,
+    children: [
+      {
+        path: '',
+        component: Timeline
+      },
+      {
+        path: 'recipe',
+        component: RecipeCreate
+      }
+    ]
   }
 ]
 
