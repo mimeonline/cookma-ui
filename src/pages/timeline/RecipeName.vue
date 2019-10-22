@@ -1,6 +1,6 @@
 <template>
   <q-card class="q-mt-lg full-width ">
-    <q-card-section class="bg-grey-4">
+    <q-card-section class="bg-lime-3">
       <span class="text-weight-medium">Rezepteingabe</span>
     </q-card-section>
 
@@ -18,7 +18,7 @@
     </q-card-section>
     <q-card-section v-if="isCreateRecipe">
       <router-link to="recipe">
-        <q-btn color="secondary" label="Rezept erstellen" class="full-width"
+        <q-btn color="lime-9" label="Rezept erstellen" class="full-width"
       /></router-link>
     </q-card-section>
   </q-card>
