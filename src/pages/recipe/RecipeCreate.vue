@@ -2,7 +2,7 @@
   <q-page>
     <div class="row">
       <div class="col-md"></div>
-      <div class="col-md-5 self-center">
+      <div class="col-md-6 self-center">
         <q-card class="q-mt-lg full-width ">
           <q-card-section class="bg-lime-3">
             <span class="text-weight-medium">Rezepteingabe</span>
