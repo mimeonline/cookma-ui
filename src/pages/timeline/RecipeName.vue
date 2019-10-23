@@ -11,7 +11,7 @@
       <q-input
         borderless
         v-model="name"
-        @click="addButton"
+        @click="addCreaterRecipeButton"
         @keypress.enter="$router.push('recipe')"
         label="Was kochst Du gerade?"
       />
@@ -35,15 +35,15 @@ export default {
     }
   },
   computed: {
-    ...mapFields('timeline', [
+    ...mapFields('recipe', [
       'recipe.name'
     ]),
     recipe () {
-      return this.$store.getters['timeline/recipeCreate']
+      return this.$store.getters['recipe/recipe']
     }
   },
   methods: {
-    addButton () {
+    addCreaterRecipeButton () {
       this.isCreateRecipe = true
     }
   }

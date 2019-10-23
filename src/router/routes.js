@@ -1,6 +1,6 @@
 import MyLayout from 'layouts/MyLayout'
 import Timeline from 'pages/timeline/Timeline'
-import RecipeCreate from 'pages/timeline/RecipeCreate'
+import RecipeCreate from 'pages/recipe/RecipeCreate'
 
 const routes = [
   {

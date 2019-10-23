@@ -24,7 +24,7 @@
 
 <script>
 import Card from './Card.vue'
-import RecipeName from './RecipeName'
+import RecipeName from '../timeline/RecipeName'
 
 export default {
   name: 'Timeline',
