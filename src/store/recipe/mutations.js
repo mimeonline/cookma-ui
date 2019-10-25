@@ -1,3 +1,7 @@
+export function setRecipe (state, recipe) {
+  state.recipe = recipe
+}
+
 export function addIngredient (state, ingredient) {
   state.recipe.ingredients.push(ingredient)
 }

@@ -68,7 +68,7 @@
                     />
                     <q-space />
                     <q-btn
-                      @click="$refs.stepper.next()"
+                      @click="nextStepOrSaveRecipe(step)"
                       color="lime-9"
                       :label="step === 4 ? 'speichern' : 'weiter'"
                     />
@@ -110,6 +110,16 @@ export default {
     ImageStep,
     IngrediantsStep,
     PreparationStep
+  },
+  methods: {
+    nextStepOrSaveRecipe (step) {
+      console.log(step)
+      if (step === 4) {
+        this.$store.dispatch('recipe/storeRecipe')
+      } else {
+        this.$refs.stepper.next()
+      }
+    }
   }
 }
 </script>
