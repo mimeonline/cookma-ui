@@ -9,6 +9,16 @@ export default {
       preparation: 0,
       cooking: 0,
       rest: 0
-    }
+    },
+    ingredients: [
+      {
+        count: 1,
+        unit: '',
+        name: ''
+      }
+    ],
+    preparations: [{
+      prepStep: ''
+    }]
   }
 }

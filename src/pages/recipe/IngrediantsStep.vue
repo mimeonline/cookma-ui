@@ -36,31 +36,25 @@
 </template>
 
 <script>
+import { mapMultiRowFields } from 'vuex-map-fields'
+
 export default {
-  // name: 'PageName',
-  data () {
-    return {
-      ingredients: [{
-        count: 1,
-        unit: '',
-        name: ''
-      }]
-    }
+  computed: {
+    ...mapMultiRowFields('recipe', [
+      'recipe.ingredients'
+    ])
   },
   methods: {
     addIngredient () {
-      console.log('Add Ingredient')
-      this.ingredients.push({
+      this.$store.commit('recipe/addIngredient', {
         count: 1,
         unit: '',
         name: ''
       })
     },
     removeIngredient (index) {
-      this.ingredients.splice(index, 1)
-      console.log(index)
+      this.$store.commit('recipe/removeIngredient', index)
     }
   }
-
 }
 </script>

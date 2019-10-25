@@ -3,7 +3,7 @@
     <div v-for="(preparation, index) in preparations" :key="index" >
       <div class="row q-pt-md">
         <div class="col">
-          <q-input filled v-model="preparation.prep" type="textarea" :label="`Schritt ${index+1}`"  />
+          <q-input filled v-model="preparation.prepStep" type="textarea" :label="`Schritt ${index+1}`"  />
         </div>
         <div class="co self-end">
           <q-btn
@@ -25,26 +25,22 @@
 </template>
 
 <script>
+import { mapMultiRowFields } from 'vuex-map-fields'
+
 export default {
-  // name: 'PageName',
-  data () {
-    return {
-      preparations: [{
-        prep: ''
-      }]
-    }
+  computed: {
+    ...mapMultiRowFields('recipe', [
+      'recipe.preparations'
+    ])
   },
   methods: {
     addPreparation () {
-      this.preparations.push({
-        count: 1,
-        unit: '',
-        name: ''
+      this.$store.commit('recipe/addPreparation', {
+        prepStep: ''
       })
     },
     removePreparation (index) {
-      this.preparations.splice(index, 1)
-      console.log(index)
+      this.$store.commit('recipe/removePreparation', index)
     }
   }
 }

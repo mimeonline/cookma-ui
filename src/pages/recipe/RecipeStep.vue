@@ -84,7 +84,6 @@
 import { mapFields } from 'vuex-map-fields'
 
 export default {
-  // name: 'PageName',
   computed: {
     ...mapFields('recipe', [
       'recipe.name',

@@ -100,8 +100,6 @@ import IngrediantsStep from './IngrediantsStep'
 import PreparationStep from './PreparationStep'
 
 export default {
-
-  // name: 'PageName',
   data () {
     return {
       step: 1
