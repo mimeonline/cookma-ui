@@ -11,7 +11,7 @@
                 <q-item-section avatar>
                   <q-avatar color="lime-9" text-color="white" icon="menu_book" />
                 </q-item-section>
-                <q-item-section>Meine Rezept</q-item-section>
+                <q-item-section>Meine Rezepte</q-item-section>
               </q-item>
             </q-list>
           </div>
