@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="c-step-body">
     <div v-for="(preparation, index) in preparations" :key="index" >
-      <div class="row q-pt-md">
+      <div class="row q-pt-xs-xs q-pt-sm-md">
         <div class="col">
           <q-input filled v-model="preparation.prepStep" type="textarea" :label="`Schritt ${index+1}`"  />
         </div>

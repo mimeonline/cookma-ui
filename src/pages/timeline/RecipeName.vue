@@ -1,5 +1,5 @@
 <template>
-  <q-card class="q-mt-lg full-width ">
+  <q-card class="full-width ">
     <q-card-section class="bg-lime-3">
       <span class="text-weight-medium">Rezepteingabe</span>
     </q-card-section>

@@ -1,11 +1,12 @@
 <template>
-  <div>
+  <div  class="c-step-body">
     <div v-for="(ingredient, index) in ingredients" :key="index" >
-      <div class="row q-gutter-md q-pt-md">
-        <div class="col-1">
+
+      <div class="row q-pt-md-md">
+        <div class="col-xs-2 col" style="max-width: 70px;">
           <q-input v-model="ingredient.count" type="number" label="Menge" filled/>
         </div>
-        <div class="col-2">
+        <div class="col-2 q-pl-xs-xs q-pl-md-md" style="max-width: 130px;">
           <q-select
             v-model="ingredient.unit"
             label="Einheit"
@@ -13,10 +14,10 @@
             filled
           />
         </div>
-        <div class="col">
+        <div class="col  q-pl-xs-xs q-pl-md-md">
           <q-input v-model="ingredient.name" label="Zutat" filled/>
         </div>
-        <div class="co self-end">
+        <div class="col-auto self-end">
           <q-btn
             :id="index"
             flat

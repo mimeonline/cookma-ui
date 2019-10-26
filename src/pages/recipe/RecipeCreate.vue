@@ -1,14 +1,14 @@
 <template>
   <q-page>
-    <div class="row">
-      <div class="col-md"></div>
-      <div class="col-md-6 self-center">
-        <q-card class="q-mt-lg full-width ">
+    <div class="row justify-center">
+      <div class="col-md gt-sm"></div>
+      <div class="col-md-6 self-center q-pa-xs-md q-pa-sm-none q-pt-sm-lg">
+        <q-card>
           <q-card-section class="bg-lime-3">
             <span class="text-weight-medium">Rezepteingabe</span>
           </q-card-section>
 
-          <q-card-section class="full-width ">
+          <q-card-section>
             <q-stepper v-model="step" ref="stepper" animated flat header-nav>
               <q-step
                 :name="1"
@@ -88,7 +88,7 @@
           </q-card-section>
         </q-card>
       </div>
-      <div class="col-md"></div>
+      <div class="col-md gt-sm"></div>
     </div>
   </q-page>
 </template>

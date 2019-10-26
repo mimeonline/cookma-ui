@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="c-step-body">
     <div class="row">
       <div class="col">
         <q-input v-model="name" label="Rezeptname" filled hint="Der Titel des Gerichts z.B. Feldsalat mit Balsamico-Vinaigrette"/>

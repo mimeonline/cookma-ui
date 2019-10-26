@@ -2,8 +2,8 @@ const express = require('express'),
   app = express(),
   formidable = require('formidable'),
   path = require('path'),
-  fs = require('fs')
-  // throttle = require('express-throttle-bandwidth')
+  fs = require('fs'),
+  throttle = require('express-throttle-bandwidth')
 
 const port = process.env.PORT || 4444,
   folder = path.join(__dirname, 'files')
@@ -13,7 +13,7 @@ if (!fs.existsSync(folder)) {
 }
 
 app.set('port', port)
-// app.use(throttle(1024 * 128)) // throttling bandwidth
+app.use(throttle(1024 * 128)) // throttling bandwidth
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')

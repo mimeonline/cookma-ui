@@ -1,8 +1,8 @@
 <template>
   <q-page>
-    <div class="row">
-      <div class="col-md"></div>
-      <div class="col-md self-center" style="max-width: 500px;">
+    <div class="row justify-center">
+      <div class="col-md gt-sm">Left Side</div>
+      <div class="col-md-auto self-center q-pa-xs-md q-pa-sm-none q-pt-sm-lg" style="max-width: 500px;">
         <div class="row">
           <RecipeName></RecipeName>
         </div>
@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md"></div>
+      <div class="col-md gt-sm">Right side</div>
     </div>
   </q-page>
 </template>

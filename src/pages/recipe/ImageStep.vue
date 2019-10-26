@@ -1,14 +1,15 @@
 <template>
-  <div class="max-width justify-center" style="max-width: 500px">
+  <div  class="c-step-body">
     <q-uploader
       url="http://localhost:4444/upload"
       :factory="factoryFn"
       @finish="finished"
       @uploaded="fileUploaded"
       ref="uploader"
-      label="Laden hier dein Bild hoch"
+      label="Klick den Plus Button oder ziehe ein Bild in das Feld"
       color="grey-6"
-      class="max-width"
+      class="full-width"
+      style="height:500px;"
     />
   </div>
 </template>
