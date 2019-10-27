@@ -1,6 +1,26 @@
 @media (max-width: 599px) {
-    .c-step-body  {
-        margin-left: -24px;
-        margin-right: -24px;
-    }
+  .c-step-body {
+    margin-left: -24px;
+    margin-right: -24px;
+  }
 }
+
+a {
+  text-decoration: none;
+}
+
+a:link {
+  color: $lime-9;
+}
+
+a:visited {
+  color: $lime-10;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+// *:not(i) {
+//   font-family: ‘PT Sans’, sans-serif;
+// }
