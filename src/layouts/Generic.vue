@@ -20,18 +20,18 @@
       <div class="row q-py-lg justify-center">
         <div class="col-auto q-gutter-sm">
           <div class="text-weight-bold">About</div>
-          <div><router-link to="aboutus">Über uns</router-link></div>
-          <div><router-link to="contact">Kontakt</router-link></div>
+          <div><router-link to="/aboutus">Über uns</router-link></div>
+          <div><router-link to="/contact">Kontakt</router-link></div>
         </div>
         <div class="col-auto q-pl-lg" style="width:100px;"><q-separator vertical style="margin:0 auto;"/></div>
         <div class="col-auto q-gutter-sm q-px-md">
           <div class="text-weight-bold">Daten</div>
-          <div><router-link to="imprint">Impressum</router-link></div>
+          <div><router-link to="/imprint">Impressum</router-link></div>
           <div>
-            <router-link to="privacy">Datenschutzerklärung</router-link>
+            <router-link to="/privacy">Datenschutzerklärung</router-link>
           </div>
           <div>
-            <router-link to="usercondition">Nutzerbedingung</router-link>
+            <router-link to="/usercondition">Nutzerbedingung</router-link>
           </div>
         </div>
         <div class="col-auto q-pr-md" style="width:100px;"><q-separator vertical style="margin:0 auto;"/></div>

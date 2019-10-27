@@ -2,6 +2,7 @@ import TimelineLayout from 'layouts/Timeline'
 import Generic from 'layouts/Generic'
 import Timeline from 'pages/timeline/Timeline'
 import RecipeCreate from 'pages/recipe/RecipeCreate'
+import Recipe from 'pages/recipe/Recipe'
 import Imprint from 'pages/Imprint'
 import Contact from 'pages/Contact'
 import AboutUs from 'pages/AboutUs'
@@ -20,7 +21,8 @@ const routes = [
     component: Generic,
     children: [
       { path: 'myrecipes', component: MyRecipes },
-      { path: '', component: RecipeCreate }
+      { path: '', component: RecipeCreate },
+      { path: ':id', component: Recipe }
     ]
   },
   {

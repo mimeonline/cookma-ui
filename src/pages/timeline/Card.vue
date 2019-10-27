@@ -15,7 +15,10 @@
           <q-item-label caption>von {{ card.user.name }}</q-item-label>
         </q-item-section>
       </q-item>
-      <q-img :src="card.recipe.image" />
+
+      <router-link to="recipe/1">
+        <q-img :src="card.recipe.image" />
+      </router-link>
 
       <q-card-section>
         <q-item top style="padding:0">
@@ -59,9 +62,11 @@
       </q-card-section>
 
       <q-card-section>{{ card.recipe.description }}</q-card-section>
+
       <q-card-section>
         <q-separator />
       </q-card-section>
+
       <q-card-section>
         <q-input
           rounded
