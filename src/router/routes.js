@@ -7,77 +7,46 @@ import Contact from 'pages/Contact'
 import AboutUs from 'pages/AboutUs'
 import Privacy from 'pages/Privacy'
 import UserCondition from 'pages/UserCondition'
+import MyRecipes from 'pages/recipe/MyRecipes'
 
 const routes = [
   {
     path: '/',
     component: TimelineLayout,
-    children: [
-      {
-        path: '',
-        component: Timeline
-      }
-    ]
+    children: [{ path: '', component: Timeline }]
   },
   {
     path: '/recipe',
     component: Generic,
     children: [
-      {
-        path: '',
-        component: RecipeCreate
-      }
+      { path: 'myrecipes', component: MyRecipes },
+      { path: '', component: RecipeCreate }
     ]
   },
   {
     path: '/imprint',
     component: Generic,
-    children: [
-      {
-        path: '',
-        component: Imprint
-      }
-    ]
+    children: [{ path: '', component: Imprint }]
   },
   {
     path: '/contact',
     component: Generic,
-    children: [
-      {
-        path: '',
-        component: Contact
-      }
-    ]
+    children: [{ path: '', component: Contact }]
   },
   {
     path: '/aboutus',
     component: Generic,
-    children: [
-      {
-        path: '',
-        component: AboutUs
-      }
-    ]
+    children: [{ path: '', component: AboutUs }]
   },
   {
     path: '/privacy',
     component: Generic,
-    children: [
-      {
-        path: '',
-        component: Privacy
-      }
-    ]
+    children: [{ path: '', component: Privacy }]
   },
   {
     path: '/UserCondition',
     component: Generic,
-    children: [
-      {
-        path: '',
-        component: UserCondition
-      }
-    ]
+    children: [{ path: '', component: UserCondition }]
   }
 ]
 
