@@ -5,15 +5,23 @@
       <div class="col-md gt-sm">
         <div class="row">
           <div class="col "></div>
-          <div class="col-auto q-pa-lg" style="max-width: 250px">
+          <div class="col-auto q-pa-lg" style="max-width: 280px">
+
             <q-list>
               <q-item clickable v-ripple>
                 <q-item-section avatar>
-                  <q-avatar color="lime-9" text-color="white" icon="menu_book" />
+                  <q-avatar color="lime-9" text-color="white" icon="fas fa-utensils" />
                 </q-item-section>
                 <q-item-section>Meine Rezepte</q-item-section>
               </q-item>
+              <q-item clickable v-ripple>
+                <q-item-section avatar>
+                  <q-avatar color="lime-9" text-color="white" icon="fas fa-book" />
+                </q-item-section>
+                <q-item-section>Meine Kochbücher</q-item-section>
+              </q-item>
             </q-list>
+
           </div>
         </div>
       </div>
@@ -47,10 +55,15 @@
               </q-card-section>
             </q-card>
             <div class="q-pt-md">
-              Immpressum | Kontakt | Über uns | Datenschutzerklärung | Nutzerbedingung
+
+              <router-link to="/imprint">Immpressum</router-link> |
+              <router-link to="contact">Kontakt</router-link> |
+              <router-link to="aboutus">Über uns</router-link> |
+              <router-link to="privacy">Datenschutzerklärung</router-link> |
+              <router-link to="usercondition">Nutzerbedingung</router-link>
             </div>
             <div>
-              Cookma &copy; 2018
+              Cookma &copy; 2019
             </div>
 
           </div>
