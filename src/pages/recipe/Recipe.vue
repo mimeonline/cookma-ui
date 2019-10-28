@@ -76,7 +76,7 @@
                   show-value
                   min="0"
                   max="60"
-                  value="45"
+                  value="0"
                   :thickness="0.13"
                   color="lime-9"
                   track-color="lime-2"
@@ -98,7 +98,7 @@
                   show-value
                   min="0"
                   max="60"
-                  value="45"
+                  value="0"
                   :thickness="0.13"
                   color="lime-9"
                   track-color="lime-2"

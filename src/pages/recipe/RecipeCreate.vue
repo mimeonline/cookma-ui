@@ -113,7 +113,6 @@ export default {
   },
   methods: {
     nextStepOrSaveRecipe (step) {
-      console.log(step)
       if (step === 4) {
         this.$store.dispatch('recipe/storeRecipe')
       } else {

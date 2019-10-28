@@ -6,10 +6,8 @@ export function storeRecipe ({ getters }) {
   if (recipes) {
     recipes.push(getters.recipe)
     LocalStorage.set('recipes', recipes)
-    console.log('Store Recipes')
   } else {
     LocalStorage.set('recipes', [getters.recipe])
-    console.log('Store Recipe')
   }
 }
 
@@ -25,11 +23,9 @@ export function uploadRecipeImage (context, files) {
         }
       })
       .then(res => {
-        console.log(res.data.file)
         resolve()
       })
       .catch(error => {
-        console.log('Ann Error occured')
         reject(error)
       })
   })
