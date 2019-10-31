@@ -1,6 +1,9 @@
 import { LocalStorage } from 'quasar'
 import { axios } from 'boot/axios'
 
+import { recipe } from '../../statics/data/recipe'
+import { myRecipes } from '../../statics/data/myRecipes'
+
 export function storeRecipe ({ getters }) {
   let recipes = LocalStorage.getItem('recipes')
   if (recipes) {
@@ -29,4 +32,12 @@ export function uploadRecipeImage (context, files) {
         reject(error)
       })
   })
+}
+
+export function mockRecipe (context) {
+  context.commit('setRecipe', recipe)
+}
+
+export function mockMyRecipes (context) {
+  context.commit('setMyRecipes', myRecipes)
 }

@@ -3,7 +3,7 @@
     <div class="self-center" style="max-width: 700px; margin:0 auto; ">
       <q-card>
         <q-img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Spaghetti_bolognese_pasta.jpg/1600px-Spaghetti_bolognese_pasta.jpg"
+          :src="recipe.image"
         />
         <q-card-section class="text-h4 text-bold">
           {{ recipe.name }}
@@ -190,6 +190,9 @@ export default {
     recipe () {
       return this.$store.getters['recipe/recipe']
     }
+  },
+  created () {
+    this.$store.dispatch('recipe/mockRecipe')
   }
 }
 </script>

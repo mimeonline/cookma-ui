@@ -1,5 +1,12 @@
-export function setRecipe (state, createRecipe) {
+export function setCreateRecipe (state, createRecipe) {
   state.createRecipe = createRecipe
+}
+
+export function setRecipe (state, recipe) {
+  state.recipe = recipe
+}
+export function setMyRecipes (state, recipes) {
+  state.myRecipes = recipes
 }
 
 export function addIngredient (state, ingredient) {

@@ -16,12 +16,12 @@
                   <router-link to="recipe/myrecipes">Meine Rezepte</router-link>
                 </q-item-section>
               </q-item>
-              <q-item clickable v-ripple>
+              <!-- <q-item clickable v-ripple>
                 <q-item-section avatar>
                   <q-avatar color="lime-9" text-color="white" icon="fas fa-book" />
                 </q-item-section>
                 <q-item-section>Meine Kochbücher</q-item-section>
-              </q-item>
+              </q-item> -->
             </q-list>
 
           </div>
@@ -89,7 +89,7 @@ export default {
     }
   },
   created () {
-    this.$store.dispatch('timeline/timelineCards')
+    this.$store.dispatch('timeline/mockTimelineCards')
   },
   components: {
     Card,
