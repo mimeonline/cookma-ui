@@ -5,31 +5,57 @@
         <q-img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Spaghetti_bolognese_pasta.jpg/1600px-Spaghetti_bolognese_pasta.jpg"
         />
-
-        <q-item>
-          <q-item-section>
-            <q-item-label class="text-h4 text-bold">
-              Spaghetti Bolognese
-            </q-item-label>
-            <q-item-label caption>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.r
-            </q-item-label>
-          </q-item-section>
-        </q-item>
+        <q-card-section class="text-h4 text-bold">
+          {{ recipe.name }}
+        </q-card-section>
 
         <q-card-section>
-          <q-rating value="3" size="1.5em" color="yellow" readonly />
-          10 Bewertungen
-          <q-rating
-            value="1"
-            size="1.5em"
-            max="1"
-            color="lime-9"
-            icon="favorite_border"
-            class="q-pl-lg"
-          />
-          930
+          <q-toolbar style="padding:0">
+            <q-rating
+              :value="recipe.rating.value"
+              size="1.5em"
+              color="yellow"
+              readonly
+            />
+            {{ recipe.rating.count }} Bewertungen
+            <q-rating
+              :value="recipe.like.value"
+              size="1.5em"
+              max="1"
+              color="lime-9"
+              icon="favorite_border"
+              class="q-pl-lg"
+            />
+            {{ recipe.like.count }}
+            <q-space />
+            <q-chip
+              ripple
+              clickable
+              icon="bookmark"
+              outline
+              label="Speichern"
+              color="lime-9"
+            />
+          </q-toolbar>
+        </q-card-section>
+
+        <q-card-section>
+          <q-item style="padding: 0">
+            <q-item-section avatar>
+              <q-avatar>
+                <q-img :src="recipe.user.avatar" />
+              </q-avatar>
+            </q-item-section>
+
+            <q-item-section>
+              <q-item-label>
+                {{ recipe.user.name }}
+              </q-item-label>
+              <q-item-label caption>
+                {{ recipe.description }}
+              </q-item-label>
+            </q-item-section>
+          </q-item>
         </q-card-section>
 
         <q-card-section>
@@ -41,7 +67,7 @@
             <div class="col-auto text-h5 q-pr-lg">Aufwand</div>
             <div class="col">
               <q-icon name="fas fa-exclamation" color="lime-9" />
-              Mittel
+              {{ recipe.expense }}
             </div>
           </div>
         </q-card-section>
@@ -52,9 +78,9 @@
               <div>
                 <q-knob
                   show-value
-                  min="0"
-                  max="60"
-                  value="45"
+                  :min="0"
+                  :max="60"
+                  :value="recipe.times.preparation"
                   :thickness="0.13"
                   color="lime-9"
                   track-color="lime-2"
@@ -74,9 +100,9 @@
               <div>
                 <q-knob
                   show-value
-                  min="0"
-                  max="60"
-                  value="0"
+                  :min="0"
+                  :max="60"
+                  :value="recipe.times.cooking"
                   :thickness="0.13"
                   color="lime-9"
                   track-color="lime-2"
@@ -96,9 +122,9 @@
               <div>
                 <q-knob
                   show-value
-                  min="0"
-                  max="60"
-                  value="0"
+                  :in="0"
+                  :max="60"
+                  :value="recipe.times.rest"
                   :thickness="0.13"
                   color="lime-9"
                   track-color="lime-2"
@@ -118,18 +144,17 @@
         </q-card-section>
 
         <q-card-section>
-          <q-separator />
-        </q-card-section>
-
-        <q-card-section>
           <div class="text-h5">Zutaten</div>
-          <div class="row">
-            <div class="col-auto q-px-lg">300 g</div>
-            <div class="col">Pasta</div>
-          </div>
-          <div class="row">
-            <div class="col-auto q-px-lg">400 g</div>
-            <div class="col">Tomaten</div>
+          <div class="q-py-sm">Portionen: 2</div>
+          <div
+            class="row"
+            v-for="ingredient in recipe.ingredients"
+            :key="ingredient.position"
+          >
+            <div class="col-auto q-px-lg">
+              {{ ingredient.count }} {{ ingredient.unit }}
+            </div>
+            <div class="col">{{ ingredient.name }}</div>
           </div>
         </q-card-section>
 
@@ -141,38 +166,19 @@
           <div class="text-h5">Zubereitung</div>
 
           <q-list>
-            <q-item>
+            <q-item
+              v-for="preparation in recipe.preparations"
+              :key="preparation.step"
+            >
               <q-item-section avatar>
-                <q-avatar color="lime-9" text-color="white">1</q-avatar>
+                <q-avatar color="lime-9" text-color="white">
+                  {{ preparation.step }}
+                </q-avatar>
               </q-item-section>
-              <q-item-section>Mache nun folgendes.....</q-item-section>
-            </q-item>
-            <q-item>
-              <q-item-section avatar>
-                <q-avatar color="lime-9" text-color="white">2</q-avatar>
-              </q-item-section>
-              <q-item-section
-                >Und weiter geht es mit diesem Schritt.....</q-item-section
-              >
+              <q-item-section> {{ preparation.prepStep }}.</q-item-section>
             </q-item>
           </q-list>
         </q-card-section>
-
-        <q-item-section>
-          <div class="row justify-end q-px-lg q-pb-lg">
-            <div class="col-auto ">
-              <q-chip
-                ripple
-                clickable
-                icon="bookmark"
-                color="lime-9"
-                text-color="white"
-              >
-                Speichern
-              </q-chip>
-            </div>
-          </div>
-        </q-item-section>
       </q-card>
     </div>
   </q-page>
@@ -180,6 +186,10 @@
 
 <script>
 export default {
-  // name: 'PageName',
+  computed: {
+    recipe () {
+      return this.$store.getters['recipe/recipe']
+    }
+  }
 }
 </script>

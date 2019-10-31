@@ -1,19 +1,19 @@
-export function setRecipe (state, recipe) {
-  state.recipe = recipe
+export function setRecipe (state, createRecipe) {
+  state.createRecipe = createRecipe
 }
 
 export function addIngredient (state, ingredient) {
-  state.recipe.ingredients.push(ingredient)
+  state.createRecipe.ingredients.push(ingredient)
 }
 
 export function removeIngredient (state, index) {
-  state.recipe.ingredients.splice(index, 1)
+  state.createRecipe.ingredients.splice(index, 1)
 }
 
 export function addPreparation (state, Preparation) {
-  state.recipe.preparations.push(Preparation)
+  state.createRecipe.preparations.push(Preparation)
 }
 
 export function removePreparation (state, index) {
-  state.recipe.preparations.splice(index, 1)
+  state.createRecipe.preparations.splice(index, 1)
 }

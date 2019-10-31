@@ -28,7 +28,6 @@
 import { mapFields } from 'vuex-map-fields'
 
 export default {
-  // name: 'PageName',
   data () {
     return {
       isCreateRecipe: false
@@ -36,7 +35,7 @@ export default {
   },
   computed: {
     ...mapFields('recipe', [
-      'recipe.name'
+      'createRecipe.name'
     ]),
     recipe () {
       return this.$store.getters['recipe/recipe']

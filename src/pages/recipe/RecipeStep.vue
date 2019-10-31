@@ -86,14 +86,14 @@ import { mapFields } from 'vuex-map-fields'
 export default {
   computed: {
     ...mapFields('recipe', [
-      'recipe.name',
-      'recipe.description',
-      'recipe.expense',
-      'recipe.category',
-      'recipe.nutritionForm',
-      'recipe.times.preparation',
-      'recipe.times.cooking',
-      'recipe.times.rest'
+      'createRecipe.name',
+      'createRecipe.description',
+      'createRecipe.expense',
+      'createRecipe.category',
+      'createRecipe.nutritionForm',
+      'createRecipe.times.preparation',
+      'createRecipe.times.cooking',
+      'createRecipe.times.rest'
     ])
   }
 }

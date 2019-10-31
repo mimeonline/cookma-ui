@@ -1,5 +1,32 @@
 export default {
-  timelineCards: [],
+  timelineCards: [
+    {
+      user: {
+        userId: '',
+        name: '',
+        avatar: ''
+      },
+      recipe: {
+        recipeId: '',
+        name: '',
+        description: '',
+        image: '',
+        times: {
+          preparation: 0
+        },
+        effort: ''
+      },
+      rating: {
+        value: 0,
+        number: 0
+      },
+      like: {
+        value: 0,
+        number: 0
+      },
+      created: ''
+    }
+  ],
   recipe: {
     name: '',
     description: '',
