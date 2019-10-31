@@ -1,14 +1,14 @@
 {
     "dev": {
         "awscloudformation": {
-            "AuthRoleName": "amplify-cookma-dev-225610-authRole",
-            "UnauthRoleArn": "arn:aws:iam::685741381452:role/amplify-cookma-dev-225610-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::685741381452:role/amplify-cookma-dev-225610-authRole",
+            "AuthRoleName": "amplify-cookma-dev-234333-authRole",
+            "UnauthRoleArn": "arn:aws:iam::685741381452:role/amplify-cookma-dev-234333-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::685741381452:role/amplify-cookma-dev-234333-authRole",
             "Region": "eu-central-1",
-            "DeploymentBucketName": "amplify-cookma-dev-225610-deployment",
-            "UnauthRoleName": "amplify-cookma-dev-225610-unauthRole",
-            "StackName": "amplify-cookma-dev-225610",
-            "StackId": "arn:aws:cloudformation:eu-central-1:685741381452:stack/amplify-cookma-dev-225610/40225000-fc29-11e9-9313-0649507b8a60"
+            "DeploymentBucketName": "amplify-cookma-dev-234333-deployment",
+            "UnauthRoleName": "amplify-cookma-dev-234333-unauthRole",
+            "StackName": "amplify-cookma-dev-234333",
+            "StackId": "arn:aws:cloudformation:eu-central-1:685741381452:stack/amplify-cookma-dev-234333/de283430-fc2f-11e9-8ecd-0ac03387fd40"
         }
     }
 }
