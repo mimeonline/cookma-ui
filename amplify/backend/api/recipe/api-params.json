@@ -1,0 +1,35 @@
+{
+    "paths": [
+        {
+            "name": "/recipe",
+            "lambdaFunction": "recipe",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "recipe",
+    "apiName": "recipe",
+    "functionArns": [
+        {
+            "lambdaFunction": "recipe"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-cookma-dev-130420-authRole",
+        "unAuthRoleName": "amplify-cookma-dev-130420-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "recipe",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ],
+    "uuid": "8e5d026f"
+}

@@ -60,6 +60,8 @@ module.exports = function (ctx) {
       // extractCSS: false,
 
       // https://quasar.dev/quasar-cli/cli-documentation/handling-webpack
+      // fixes https://github.com/graphql/graphql-js/issues/1272
+      /* eslint no-unused-expressions: "error" */
       extendWebpack (cfg) {
         cfg.module.rules.push({
           enforce: 'pre',
@@ -69,6 +71,11 @@ module.exports = function (ctx) {
           options: {
             formatter: require('eslint').CLIEngine.getFormatter('stylish')
           }
+        }),
+        cfg.module.rules.push({
+          test: /\.mjs$/,
+          include: /node_modules/,
+          type: 'javascript/auto'
         })
       }
     },
