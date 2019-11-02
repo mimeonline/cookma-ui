@@ -16,7 +16,7 @@
         label="Was kochst Du gerade?"
       />
     </q-card-section>
-    <q-card-section v-if="isCreateRecipe">
+    <q-card-section v-if="isRecipeCreate">
       <router-link to="recipe">
         <q-btn color="lime-9" label="Rezept erstellen" class="full-width"
       /></router-link>
@@ -30,20 +30,20 @@ import { mapFields } from 'vuex-map-fields'
 export default {
   data () {
     return {
-      isCreateRecipe: false
+      isRecipeCreate: false
     }
   },
   computed: {
     ...mapFields('recipe', [
-      'createRecipe.name'
+      'recipeCreate.name'
     ]),
     recipe () {
-      return this.$store.getters['recipe/recipe']
+      return this.$store.getters['recipe/recipeCreate']
     }
   },
   methods: {
     addCreaterRecipeButton () {
-      this.isCreateRecipe = true
+      this.isRecipeCreate = true
     }
   }
 }

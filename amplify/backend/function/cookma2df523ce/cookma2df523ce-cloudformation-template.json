@@ -71,7 +71,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-cookma-dev-130528-deployment",
-					"S3Key": "amplify-builds/cookma2df523ce-534c7a56553279702b30-build.zip"
+					"S3Key": "amplify-builds/cookma2df523ce-5632466a565873643556-build.zip"
 				}
 			}
 		},
