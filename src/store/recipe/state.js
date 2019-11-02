@@ -1,5 +1,6 @@
 export default {
-  createRecipe: {
+  recipeCreate: {
+    recipeId: '',
     name: '',
     description: '',
     expense: [''],
@@ -21,7 +22,10 @@ export default {
       {
         prepStep: ''
       }
-    ]
+    ],
+    user: {
+      userId: ''
+    }
   },
   recipe: {
     recipeId: '',

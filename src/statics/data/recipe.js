@@ -45,7 +45,7 @@ export const recipe = {
     }
   ],
   user: {
-    userId: 'd393bb48-dd7d-4826-94b9-80df18246f4c',
+    userId: '9535152e-e5cc-40c6-a680-f7b01da97653',
     name: 'Michael',
     avatar: 'https://cdn.pixabay.com/photo/2017/01/31/19/07/avatar-2026510_1280.png'
   }

@@ -13,16 +13,17 @@
 <script>
 import Auth from '@aws-amplify/auth'
 import { API } from 'aws-amplify'
+import { uid } from 'quasar'
 
 async function postData () {
-  let apiName = 'recipe'
-  let path = '/recipe'
+  let apiName = 'apie4be9e4f'
+  let path = '/recipes'
   let myInit = {
     headers: {
       'Authorization': `Bearer ${(await Auth.currentSession()).getAccessToken().getJwtToken()}`,
       'Content-Type': 'application/json'
     },
-    body: { id: '7', name: 'Sphagetti', description: 'Beschreibung' }
+    body: { recipeId: uid(), name: 'Sphagetti', description: 'Beschreibung' }
   }
   return API.post(apiName, path, myInit)
 }
@@ -31,8 +32,10 @@ export default {
   // name: 'PageName',
 
   created () {
-    console.log(API)
+    // console.log(API)
     postData()
+      .then(res => console.log(res))
+      .catch(error => console.log(error))
   }
 }
 </script>

@@ -14,15 +14,15 @@
         },
     
     
-          "functionrecipeName": {
+          "functioncookma2df523ceName": {
             "Type": "String",
-            "Default": "functionrecipeName"
+            "Default": "functioncookma2df523ceName"
           },
         
           
-          "functionrecipeArn": {
+          "functioncookma2df523ceArn": {
             "Type": "String",
-            "Default": "functionrecipeArn"
+            "Default": "functioncookma2df523ceArn"
           }
         
           
@@ -45,16 +45,16 @@
         
         
         
-      "recipe": {
+      "apie4be9e4f": {
         "Type": "AWS::ApiGateway::RestApi",
         "Properties": {
           "Description": "",
-          "Name": "recipe",
+          "Name": "apie4be9e4f",
           "Body": {
             "swagger": "2.0",
             "info": {
               "version": "2018-05-24T17:52:00Z",
-              "title": "recipe"
+              "title": "apie4be9e4f"
             },
             "host": {
                 "Fn::Join": [
@@ -90,7 +90,7 @@
             ],
             "paths": {
               
-              "/recipe": {
+              "/recipes": {
                 "options": {
                   "consumes": [
                     "application/json"
@@ -176,7 +176,7 @@
                             
                             {
                                 
-                                "Ref": "functionrecipeArn"
+                                "Ref": "functioncookma2df523ceArn"
                             },
                             
                             "/invocations"
@@ -189,7 +189,7 @@
                   }
                 }
               },
-              "/recipe/{proxy+}": {
+              "/recipes/{proxy+}": {
                 "options": {
                   "consumes": [
                     "application/json"
@@ -275,7 +275,7 @@
                           
                           {
                             
-                            "Ref": "functionrecipeArn"
+                            "Ref": "functioncookma2df523ceArn"
                           },
                           
                           "/invocations"
@@ -332,12 +332,12 @@
                   
         
         
-        "functionrecipePermissionrecipe": {
+        "functioncookma2df523cePermissionapie4be9e4f": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
                 "FunctionName": 
                     {
-                        "Ref":  "functionrecipeName"
+                        "Ref":  "functioncookma2df523ceName"
                     },
                     
                     "Action": "lambda:InvokeFunction",
@@ -356,7 +356,7 @@
                             },
                             ":",
                             {
-                                "Ref": "recipe"
+                                "Ref": "apie4be9e4f"
                             },
                             "/*/*/*"
                         ]
@@ -367,7 +367,7 @@
         
         
         
-      "DeploymentAPIGWrecipe8e5d026f": {
+      "DeploymentAPIGWapie4be9e4f4ec696ec": {
         "Type": "AWS::ApiGateway::Deployment",
         "Properties": {
           "Description": "The Development stage deployment of your API.",
@@ -381,7 +381,7 @@
             ]
           },
           "RestApiId": {
-            "Ref": "recipe"
+            "Ref": "apie4be9e4f"
           }
         }
       }
@@ -389,11 +389,11 @@
     "Outputs": {
         "RootUrl": {
             "Description": "Root URL of the API gateway",
-            "Value": {"Fn::Join": ["", ["https://", {"Ref": "recipe"}, ".execute-api.", {"Ref": "AWS::Region"}, ".amazonaws.com/", {"Fn::If": ["ShouldNotCreateEnvResources","Prod", {"Ref": "env"} ]}]]}
+            "Value": {"Fn::Join": ["", ["https://", {"Ref": "apie4be9e4f"}, ".execute-api.", {"Ref": "AWS::Region"}, ".amazonaws.com/", {"Fn::If": ["ShouldNotCreateEnvResources","Prod", {"Ref": "env"} ]}]]}
         },
         "ApiName": {
           "Description": "API Friendly name",
-          "Value": "recipe"
+          "Value": "apie4be9e4f"
         }
     }
   }

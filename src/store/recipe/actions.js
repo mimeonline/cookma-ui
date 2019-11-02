@@ -1,16 +1,39 @@
-import { LocalStorage } from 'quasar'
+import { LocalStorage, uid } from 'quasar'
 import { axios } from 'boot/axios'
+import Amplify from '@aws-amplify/core'
 
 import { recipe } from '../../statics/data/recipe'
 import { myRecipes } from '../../statics/data/myRecipes'
 
-export function storeRecipe ({ getters }) {
+async function postData (recipe) {
+  let apiName = 'apie4be9e4f'
+  let path = '/recipes'
+  let myInit = {
+    headers: {
+      Authorization: `Bearer ${(await Amplify.Auth.currentSession()).getAccessToken().getJwtToken()}`,
+      'Content-Type': 'application/json'
+    },
+    body: { ...recipe }
+  }
+  return Amplify.API.post(apiName, path, myInit)
+}
+
+export function storeRecipe ({ getters, commit }) {
+  (async () => {
+    var currentUser = await Amplify.Auth.currentAuthenticatedUser()
+    commit('setUserId', currentUser.attributes.sub)
+  })()
+  commit('setRecipeId', uid())
+  console.log(new Date())
+  // postData(getters.recipeCreate)
+  postData(recipe)
+
   let recipes = LocalStorage.getItem('recipes')
   if (recipes) {
-    recipes.push(getters.recipe)
+    recipes.push(getters.recipeCreate)
     LocalStorage.set('recipes', recipes)
   } else {
-    LocalStorage.set('recipes', [getters.recipe])
+    LocalStorage.set('recipes', [getters.recipeCreate])
   }
 }
 
@@ -32,6 +55,24 @@ export function uploadRecipeImage (context, files) {
         reject(error)
       })
   })
+}
+
+async function getRecipes () {
+  let apiName = 'apie4be9e4f'
+  let path = '/recipes'
+  let myInit = {
+    headers: {
+      // 'Authorization': `Bearer ${(await this.$Amplify.Auth.currentSession()).getAccessToken().getJwtToken()}`,
+      // 'Content-Type': 'application/json'
+    }
+  }
+  return Amplify.API.get(apiName, path, myInit)
+}
+
+export function fetchUserRecipes (context) {
+  getRecipes()
+    .then(response => console.log(response))
+    .catch(error => console.log(error))
 }
 
 export function mockRecipe (context) {

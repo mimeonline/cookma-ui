@@ -1,10 +1,19 @@
-export function setCreateRecipe (state, createRecipe) {
-  state.createRecipe = createRecipe
+export function setRecipeCreate (state, recipeCreate) {
+  state.recipeCreate = recipeCreate
 }
 
 export function setRecipe (state, recipe) {
   state.recipe = recipe
 }
+
+export function setRecipeId (state, recipeId) {
+  state.recipeCreate.recipeId = recipeId
+}
+
+export function setUserId (state, userId) {
+  state.recipeCreate.user.userId = userId
+}
+
 export function setMyRecipes (state, recipes) {
   state.myRecipes = recipes
 }

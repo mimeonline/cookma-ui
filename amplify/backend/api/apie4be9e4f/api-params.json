@@ -1,35 +1,35 @@
 {
     "paths": [
         {
-            "name": "/recipe",
-            "lambdaFunction": "recipe",
+            "name": "/recipes",
+            "lambdaFunction": "cookma2df523ce",
             "privacy": {
                 "open": true
             }
         }
     ],
-    "resourceName": "recipe",
-    "apiName": "recipe",
+    "resourceName": "apie4be9e4f",
+    "apiName": "apie4be9e4f",
     "functionArns": [
         {
-            "lambdaFunction": "recipe"
+            "lambdaFunction": "cookma2df523ce"
         }
     ],
     "privacy": {
         "auth": 0,
         "unauth": 0,
-        "authRoleName": "amplify-cookma-dev-130420-authRole",
-        "unAuthRoleName": "amplify-cookma-dev-130420-unauthRole"
+        "authRoleName": "amplify-cookma-dev-130528-authRole",
+        "unAuthRoleName": "amplify-cookma-dev-130528-unauthRole"
     },
     "dependsOn": [
         {
             "category": "function",
-            "resourceName": "recipe",
+            "resourceName": "cookma2df523ce",
             "attributes": [
                 "Name",
                 "Arn"
             ]
         }
     ],
-    "uuid": "8e5d026f"
+    "uuid": "4ec696ec"
 }

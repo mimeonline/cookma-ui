@@ -5,44 +5,20 @@
             "providerPlugin": "awscloudformation"
         }
     },
-    "auth": {
-        "cookma80fb8a23": {
-            "service": "Cognito",
-            "providerPlugin": "awscloudformation",
-            "dependsOn": []
-        },
-        "userPoolGroups": {
-            "service": "Cognito-UserPool-Groups",
-            "providerPlugin": "awscloudformation",
-            "dependsOn": [
-                {
-                    "category": "auth",
-                    "resourceName": "cookma80fb8a23",
-                    "attributes": [
-                        "UserPoolId",
-                        "AppClientIDWeb",
-                        "AppClientID",
-                        "IdentityPoolId"
-                    ]
-                }
-            ]
-        }
-    },
-    "storage": {
-        "recipe": {
-            "service": "DynamoDB",
-            "providerPlugin": "awscloudformation"
-        }
-    },
     "function": {
-        "recipe": {
+        "cookma66e004bdPostConfirmation": {
+            "service": "Lambda",
+            "providerPlugin": "awscloudformation",
+            "build": true
+        },
+        "cookma2df523ce": {
             "service": "Lambda",
             "providerPlugin": "awscloudformation",
             "build": true,
             "dependsOn": [
                 {
                     "category": "storage",
-                    "resourceName": "recipe",
+                    "resourceName": "dynamo270378fb",
                     "attributes": [
                         "Name",
                         "Arn"
@@ -51,14 +27,37 @@
             ]
         }
     },
+    "auth": {
+        "cookma66e004bd": {
+            "service": "Cognito",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "cookma66e004bdPostConfirmation",
+                    "triggerProvider": "Cognito",
+                    "attributes": [
+                        "Arn",
+                        "Name"
+                    ]
+                }
+            ]
+        }
+    },
+    "storage": {
+        "dynamo270378fb": {
+            "service": "DynamoDB",
+            "providerPlugin": "awscloudformation"
+        }
+    },
     "api": {
-        "recipe": {
+        "apie4be9e4f": {
             "service": "API Gateway",
             "providerPlugin": "awscloudformation",
             "dependsOn": [
                 {
                     "category": "function",
-                    "resourceName": "recipe",
+                    "resourceName": "cookma2df523ce",
                     "attributes": [
                         "Name",
                         "Arn"

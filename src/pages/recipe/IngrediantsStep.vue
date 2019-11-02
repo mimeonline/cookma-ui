@@ -42,7 +42,7 @@ import { mapMultiRowFields } from 'vuex-map-fields'
 export default {
   computed: {
     ...mapMultiRowFields('recipe', [
-      'createRecipe.ingredients'
+      'recipeCreate.ingredients'
     ])
   },
   methods: {

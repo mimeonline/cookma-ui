@@ -2,16 +2,41 @@
 	"AWSTemplateFormatVersion": "2010-09-09",
 	"Description": "Lambda resource stack creation using Amplify CLI",
 	"Parameters": {
+		"GROUP": {
+			"Type": "String",
+			"Default": ""
+		},
+		"modules": {
+			"Type": "String",
+			"Default": "",
+			"Description": "Comma-delimmited list of modules to be executed by a lambda trigger. Sent to resource as an env variable."
+		},
+		"resourceName": {
+			"Type": "String",
+			"Default": ""
+		},
+		"trigger": {
+			"Type": "String",
+			"Default": "true"
+		},
+		"functionName": {
+			"Type": "String",
+			"Default": ""
+		},
+		"roleName": {
+			"Type": "String",
+			"Default": ""
+		},
+		"parentResource": {
+			"Type": "String",
+			"Default": ""
+		},
+		"parentStack": {
+			"Type": "String",
+			"Default": ""
+		},
 		"env": {
 			"Type": "String"
-		},
-		"storagerecipeName": {
-			"Type": "String",
-			"Default": "storagerecipeName"
-		},
-		"storagerecipeArn": {
-			"Type": "String",
-			"Default": "storagerecipeArn"
 		}
 	},
 	"Conditions": {
@@ -36,12 +61,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"recipe",
+						"cookma66e004bdPostConfirmation",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"recipe",
+									"cookma66e004bdPostConfirmation",
 									"-",
 									{
 										"Ref": "env"
@@ -56,8 +81,14 @@
 						"ENV": {
 							"Ref": "env"
 						},
+						"MODULES": {
+							"Ref": "modules"
+						},
 						"REGION": {
 							"Ref": "AWS::Region"
+						},
+						"GROUP": {
+							"Ref": "GROUP"
 						}
 					}
 				},
@@ -67,11 +98,11 @@
 						"Arn"
 					]
 				},
-				"Runtime": "nodejs10.x",
+				"Runtime": "nodejs8.10",
 				"Timeout": "25",
 				"Code": {
-					"S3Bucket": "amplify-cookma-dev-130420-deployment",
-					"S3Key": "amplify-builds/recipe-5a635548726a707a6b48-build.zip"
+					"S3Bucket": "amplify-cookma-dev-130528-deployment",
+					"S3Key": "amplify-builds/cookma66e004bdPostConfirmation-6b572f67615770534f67-build.zip"
 				}
 			}
 		},
@@ -81,12 +112,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"cookmaLambdaRoleaf549540",
+						"cookma66e004bdPostConfirmation",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"cookmaLambdaRoleaf549540",
+									"cookma66e004bdPostConfirmation",
 									"-",
 									{
 										"Ref": "env"
@@ -152,33 +183,6 @@
 									}
 								]
 							}
-						},
-						{
-							"Effect": "Allow",
-							"Action": [
-								"dynamodb:GetItem",
-								"dynamodb:Query",
-								"dynamodb:Scan",
-								"dynamodb:PutItem",
-								"dynamodb:UpdateItem",
-								"dynamodb:DeleteItem"
-							],
-							"Resource": [
-								{
-									"Ref": "storagerecipeArn"
-								},
-								{
-									"Fn::Join": [
-										"/",
-										[
-											{
-												"Ref": "storagerecipeArn"
-											},
-											"index/*"
-										]
-									]
-								}
-							]
 						}
 					]
 				}
@@ -202,11 +206,6 @@
 		"Region": {
 			"Value": {
 				"Ref": "AWS::Region"
-			}
-		},
-		"LambdaExecutionRole": {
-			"Value": {
-				"Ref": "LambdaExecutionRole"
 			}
 		}
 	}

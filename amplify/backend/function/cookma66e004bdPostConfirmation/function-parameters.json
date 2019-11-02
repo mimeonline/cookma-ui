@@ -1,0 +1,14 @@
+{
+    "trigger": true,
+    "modules": [
+        "add-to-group"
+    ],
+    "parentResource": "cookma66e004bd",
+    "functionName": "cookma66e004bdPostConfirmation",
+    "parentStack": "auth",
+    "triggerEnvs": "[]",
+    "triggerTemplate": "PostConfirmation.json.ejs",
+    "roleName": "cookma66e004bdPostConfirmation",
+    "skipEdit": true,
+    "resourceName": "cookma66e004bdPostConfirmation"
+}

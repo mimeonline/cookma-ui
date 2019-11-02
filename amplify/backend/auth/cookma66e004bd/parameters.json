@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "cookma80fb8a23_identitypool_80fb8a23",
+    "identityPoolName": "cookma66e004bd_identitypool_66e004bd",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "cookma80fb8a23",
-    "userPoolName": "cookma80fb8a23_userpool_80fb8a23",
+    "resourceNameTruncated": "cookma66e004bd",
+    "userPoolName": "cookma66e004bd_userpool_66e004bd",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,9 +28,9 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "cookma80fb8a23_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "cookma66e004bd_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "resourceName": "cookma80fb8a23",
+    "resourceName": "cookma66e004bd",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -48,8 +48,23 @@
     "usernameAttributes": [
         "email"
     ],
-    "userPoolGroupList": [
-        "cookma"
+    "triggers": "{\"PostConfirmation\":[\"add-to-group\"]}",
+    "userPoolGroupList": [],
+    "parentStack": {
+        "Ref": "AWS::StackId"
+    },
+    "permissions": [
+        "{\"policyName\":\"AddToGroupCognito\",\"trigger\":\"PostConfirmation\",\"effect\":\"Allow\",\"actions\":[\"cognito-idp:AdminAddUserToGroup\",\"cognito-idp:GetGroup\",\"cognito-idp:CreateGroup\"],\"resource\":{\"paramType\":\"!GetAtt\",\"keys\":[\"UserPool\",\"Arn\"]}}"
     ],
-    "dependsOn": []
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "cookma66e004bdPostConfirmation",
+            "triggerProvider": "Cognito",
+            "attributes": [
+                "Arn",
+                "Name"
+            ]
+        }
+    ]
 }

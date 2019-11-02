@@ -21,12 +21,12 @@ if (process.env.ENV && process.env.ENV !== 'NONE') {
 }
 
 const userIdPresent = false // TODO: update in case is required to use that definition
-const partitionKeyName = 'id'
+const partitionKeyName = 'recipeId'
 const partitionKeyType = 'S'
 const sortKeyName = ''
 const sortKeyType = ''
 const hasSortKey = sortKeyName !== ''
-const path = '/recipe'
+const path = '/recipes'
 const UNAUTH = 'UNAUTH'
 const hashKeyPath = '/:' + partitionKeyName
 const sortKeyPath = hasSortKey ? '/:' + sortKeyName : ''
@@ -53,6 +53,39 @@ const convertUrlType = (param, type) => {
 }
 
 /********************************
+ * MANUALLY ADDED
+ * HTTP Get method to scan all objects *
+ *
+ * The generated lambda code from `amplify add api` only created a `get` endpoint
+ * to "list" an _individual_ object.
+ *
+ * This adds the ability to perform a scan which returns an Items array of all objects.
+ ********************************/
+
+app.get(path + '/user/:userId', function (req, res) {
+  var params = {
+    TableName: tableName,
+    FilterExpression: 'userId = :id',
+    ExpressionAttributeValues: {
+      ':id': req.params.userId
+    }
+
+  }
+
+  dynamodb.scan(params, (err, data) => {
+    if (err) {
+      res.json({ error: 'Could not load items: ' + err.message })
+    }
+
+    res.json({
+      data: data.Items.map(item => {
+        return item
+      })
+    })
+  })
+})
+
+/********************************
  * HTTP Get method for list objects *
  ********************************/
 
@@ -63,14 +96,10 @@ app.get(path + hashKeyPath, function (req, res) {
   }
 
   if (userIdPresent && req.apiGateway) {
-    condition[partitionKeyName]['AttributeValueList'] = [
-      req.apiGateway.event.requestContext.identity.cognitoIdentityId || UNAUTH
-    ]
+    condition[partitionKeyName]['AttributeValueList'] = [req.apiGateway.event.requestContext.identity.cognitoIdentityId || UNAUTH ]
   } else {
     try {
-      condition[partitionKeyName]['AttributeValueList'] = [
-        convertUrlType(req.params[partitionKeyName], partitionKeyType)
-      ]
+      condition[partitionKeyName]['AttributeValueList'] = [ convertUrlType(req.params[partitionKeyName], partitionKeyType) ]
     } catch (err) {
       res.statusCode = 500
       res.json({ error: 'Wrong column type ' + err })
@@ -81,6 +110,7 @@ app.get(path + hashKeyPath, function (req, res) {
     TableName: tableName,
     KeyConditions: condition
   }
+  console.log(queryParams)
 
   dynamodb.query(queryParams, (err, data) => {
     if (err) {
@@ -138,8 +168,8 @@ app.get(path + '/object' + hashKeyPath + sortKeyPath, function (req, res) {
 })
 
 /************************************
- * HTTP put method for insert object *
- *************************************/
+* HTTP put method for insert object *
+*************************************/
 
 app.put(path, function (req, res) {
   if (userIdPresent) {
@@ -161,8 +191,8 @@ app.put(path, function (req, res) {
 })
 
 /************************************
- * HTTP post method for insert object *
- *************************************/
+* HTTP post method for insert object *
+*************************************/
 
 app.post(path, function (req, res) {
   if (userIdPresent) {
@@ -184,8 +214,8 @@ app.post(path, function (req, res) {
 })
 
 /**************************************
- * HTTP remove method to delete object *
- ***************************************/
+* HTTP remove method to delete object *
+***************************************/
 
 app.delete(path + '/object' + hashKeyPath + sortKeyPath, function (req, res) {
   var params = {}
