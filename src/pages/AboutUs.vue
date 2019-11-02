@@ -22,7 +22,7 @@ async function postData () {
       'Authorization': `Bearer ${(await Auth.currentSession()).getAccessToken().getJwtToken()}`,
       'Content-Type': 'application/json'
     },
-    body: { id: '5' }
+    body: { id: '7', name: 'Sphagetti', description: 'Beschreibung' }
   }
   return API.post(apiName, path, myInit)
 }
