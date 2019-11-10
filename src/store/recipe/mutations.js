@@ -15,17 +15,17 @@ export function setUserId (state, userId) {
 }
 
 export function addIngredient (state, ingredient) {
-  state.createRecipe.ingredients.push(ingredient)
+  state.recipeCreate.ingredients.push(ingredient)
 }
 
 export function removeIngredient (state, index) {
-  state.createRecipe.ingredients.splice(index, 1)
+  state.recipeCreate.ingredients.splice(index, 1)
 }
 
 export function addPreparation (state, Preparation) {
-  state.createRecipe.preparations.push(Preparation)
+  state.recipeCreate.preparations.push(Preparation)
 }
 
 export function removePreparation (state, index) {
-  state.createRecipe.preparations.splice(index, 1)
+  state.recipeCreate.preparations.splice(index, 1)
 }
