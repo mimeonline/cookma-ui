@@ -1,3 +1,3 @@
-export function setMyRecipes (state, recipes) {
-  state.myRecipes = recipes
+export function setMyRecipes (state, myRecipes) {
+  state.myRecipes = myRecipes
 }
