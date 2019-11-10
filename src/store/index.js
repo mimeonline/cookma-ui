@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import myrecipes from './myrecipes'
 import recipe from './recipe'
 import timeline from './timeline'
 
@@ -14,6 +15,7 @@ Vue.use(Vuex)
 export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
     modules: {
+      myrecipes,
       recipe,
       timeline
     },

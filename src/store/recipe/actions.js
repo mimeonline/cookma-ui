@@ -3,7 +3,6 @@ import { axios } from 'boot/axios'
 import Amplify from '@aws-amplify/core'
 
 import { recipe } from '../../statics/data/recipe'
-import { myRecipes } from '../../statics/data/myRecipes'
 
 async function postData (recipe) {
   let apiName = 'apie4be9e4f'
@@ -77,8 +76,4 @@ export function fetchUserRecipes (context) {
 
 export function mockRecipe (context) {
   context.commit('setRecipe', recipe)
-}
-
-export function mockMyRecipes (context) {
-  context.commit('setMyRecipes', myRecipes)
 }

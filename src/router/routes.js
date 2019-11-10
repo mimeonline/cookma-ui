@@ -8,7 +8,7 @@ import Contact from 'pages/Contact'
 import AboutUs from 'pages/AboutUs'
 import Privacy from 'pages/Privacy'
 import UserCondition from 'pages/UserCondition'
-import MyRecipes from 'pages/recipe/MyRecipes'
+import MyRecipes from 'pages/myrecipes/MyRecipes'
 
 const routes = [
   {
@@ -20,9 +20,15 @@ const routes = [
     path: '/recipe',
     component: Generic,
     children: [
-      { path: 'myrecipes', component: MyRecipes },
       { path: '', component: CreateRecipe },
       { path: ':id', component: Recipe }
+    ]
+  },
+  {
+    path: '/myrecipes',
+    component: Generic,
+    children: [
+      { path: '', component: MyRecipes }
     ]
   },
   {

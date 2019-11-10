@@ -14,10 +14,6 @@ export function setUserId (state, userId) {
   state.recipeCreate.user.userId = userId
 }
 
-export function setMyRecipes (state, recipes) {
-  state.myRecipes = recipes
-}
-
 export function addIngredient (state, ingredient) {
   state.createRecipe.ingredients.push(ingredient)
 }

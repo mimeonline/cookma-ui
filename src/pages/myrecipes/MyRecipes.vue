@@ -8,8 +8,8 @@
         :key="index"
       >
         <q-card>
-          <router-link to="/recipe/1">
-            <q-img :src="recipe.image" />
+          <router-link :to="'recipe/' + recipe.recipeId">
+            <q-img :src="recipe.imageId" />
           </router-link>
 
           <q-card-section>
@@ -25,11 +25,11 @@
 export default {
   computed: {
     myRecipes () {
-      return this.$store.getters['recipe/myRecipes']
+      return this.$store.getters['myrecipes/myRecipes']
     }
   },
   created () {
-    this.$store.dispatch('recipe/mockMyRecipes')
+    this.$store.dispatch('myrecipes/mockMyRecipes')
   }
 }
 </script>
