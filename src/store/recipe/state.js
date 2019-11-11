@@ -1,8 +1,13 @@
 export default {
   recipeCreate: {
-    recipeId: '',
     name: '',
     description: '',
+    images: [
+      {
+        position: 1,
+        imageId: ''
+      }
+    ],
     expense: [''],
     category: [''],
     nutritionForm: [''],
@@ -20,12 +25,11 @@ export default {
     ],
     preparations: [
       {
-        prepStep: ''
+        step: 1,
+        stepDescription: ''
       }
     ],
-    user: {
-      userId: ''
-    }
+    userId: ''
   },
   recipe: {
     recipeId: '',

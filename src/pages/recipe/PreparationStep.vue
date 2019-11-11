@@ -3,7 +3,7 @@
     <div v-for="(preparation, index) in preparations" :key="index" >
       <div class="row q-pt-xs-xs q-pt-sm-md">
         <div class="col">
-          <q-input filled v-model="preparation.prepStep" type="textarea" :label="`Schritt ${index+1}`"  />
+          <q-input filled v-model="preparation.stepDescription" type="textarea" :label="`Schritt ${index+1}`"  />
         </div>
         <div class="co self-end">
           <q-btn
