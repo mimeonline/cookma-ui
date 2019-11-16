@@ -21,7 +21,7 @@ const routes = [
     component: Generic,
     children: [
       { path: '', component: CreateRecipe },
-      { path: ':id', component: Recipe }
+      { path: ':recipId', component: Recipe }
     ]
   },
   {

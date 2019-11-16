@@ -6,7 +6,7 @@ export const timelinecards = [
       avatar: 'https://cdn.pixabay.com/photo/2017/01/31/19/07/avatar-2026510_1280.png'
     },
     recipe: {
-      recipeId: '38d12f30-d305-4864-a6b0-1f42f2e49547',
+      recipeId: 'b5a7e38e-9a80-4b65-bcba-21fde91fea79',
       name: 'Spaghetti Bolognese',
       description: 'Ein Rezept das einem die italienische Natur näher bringt.',
       image: 'statics/images/recipe-575434_640.png',

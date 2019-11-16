@@ -2,40 +2,27 @@
   <q-page padding>
     <div class="self-center" style="max-width: 700px; margin:0 auto; ">
       <q-card>
-        <q-img
-          :src="recipe.image"
-        />
+        <q-img :src="recipe.images[0].imageId" />
         <q-card-section class="text-h4 text-bold">
           {{ recipe.name }}
         </q-card-section>
 
         <q-card-section>
           <q-toolbar style="padding:0">
+            <q-rating :value="recipe.rating.valueRatings" size="1.5em" color="yellow" readonly />
+            {{ recipe.rating.countRatings }} Bewertungen
             <q-rating
-              :value="recipe.rating.value"
-              size="1.5em"
-              color="yellow"
-              readonly
-            />
-            {{ recipe.rating.count }} Bewertungen
-            <q-rating
-              :value="recipe.like.value"
+              :value="recipe.like.valueLikes"
               size="1.5em"
               max="1"
               color="lime-9"
               icon="favorite_border"
               class="q-pl-lg"
+              ƒ
             />
-            {{ recipe.like.count }}
+            {{ recipe.like.countLikes }}
             <q-space />
-            <q-chip
-              ripple
-              clickable
-              icon="bookmark"
-              outline
-              label="Speichern"
-              color="lime-9"
-            />
+            <q-chip ripple clickable icon="bookmark" outline label="Speichern" color="lime-9" />
           </q-toolbar>
         </q-card-section>
 
@@ -49,7 +36,7 @@
 
             <q-item-section>
               <q-item-label>
-                {{ recipe.user.name }}
+                {{ recipe.user.userName }}
               </q-item-label>
               <q-item-label caption>
                 {{ recipe.description }}
@@ -175,7 +162,7 @@
                   {{ preparation.step }}
                 </q-avatar>
               </q-item-section>
-              <q-item-section> {{ preparation.prepStep }}.</q-item-section>
+              <q-item-section> {{ preparation.stepDescription }}.</q-item-section>
             </q-item>
           </q-list>
         </q-card-section>
@@ -192,7 +179,8 @@ export default {
     }
   },
   created () {
-    this.$store.dispatch('recipe/mockRecipe')
+    // this.$store.dispatch('recipe/mockRecipe')
+    this.$store.dispatch('recipe/fetchRecipe', this.$route.params.recipId)
   }
 }
 </script>

@@ -16,7 +16,7 @@
         </q-item-section>
       </q-item>
 
-      <router-link to="recipe/1">
+      <router-link :to="'recipe/' +  card.recipe.recipeId" >
         <q-img :src="card.recipe.image" />
       </router-link>
 

@@ -9,7 +9,7 @@ export default {
       }
     ],
     expense: [''],
-    category: [''],
+    meal: [''],
     nutritionForm: [''],
     times: {
       preparation: 0,
@@ -35,18 +35,14 @@ export default {
     recipeId: '',
     name: '',
     description: '',
-    image: '',
+    images: [
+      {
+        position: 1,
+        imageId: ''
+      }
+    ],
     expense: '',
-    category: [],
-    nutritionForm: [],
-    rating: {
-      value: 0,
-      count: 0
-    },
-    like: {
-      value: 0,
-      count: 0
-    },
+    meal: [''],
     times: {
       preparation: 0,
       cooking: 0,
@@ -63,12 +59,24 @@ export default {
     preparations: [
       {
         step: 1,
-        prepStep: ''
+        stepDescription: ''
       }
     ],
+    userId: '',
+    lastModificationDate: '',
+    nutritionForm: [],
+    rating: {
+      valueRatings: 0,
+      countRatings: 0
+    },
+    like: {
+      valueLikes: 0,
+      countLikes: 0
+    },
+
     user: {
-      userId: '',
-      name: '',
+      userProfileId: '',
+      userName: '',
       avatar: ''
     }
   }

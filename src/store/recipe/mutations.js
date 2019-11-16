@@ -11,7 +11,7 @@ export function setRecipeId (state, recipeId) {
 }
 
 export function setUserId (state, userId) {
-  state.recipeCreate.user.userId = userId
+  state.recipeCreate.userId = userId
 }
 
 export function addIngredient (state, ingredient) {
@@ -28,4 +28,8 @@ export function addPreparation (state, Preparation) {
 
 export function removePreparation (state, index) {
   state.recipeCreate.preparations.splice(index, 1)
+}
+
+export function setImageId (state, imageId) {
+  state.recipeCreate.images[0].imageId = imageId
 }

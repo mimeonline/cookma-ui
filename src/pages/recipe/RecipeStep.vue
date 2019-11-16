@@ -21,15 +21,16 @@
       </div>
       <div class="col q-pl-md">
         <q-select
-          v-model="category"
+          v-model="meal"
           :options="[
             'Vorspeise',
             'Hauptspeise',
             'Dessert',
             'Snack',
-            'Frühstück'
+            'Frühstück',
+            'Getränk'
           ]"
-          label="Kategorie"
+          label="Mahlzeit"
           filled
         />
       </div>
@@ -89,7 +90,7 @@ export default {
       'recipeCreate.name',
       'recipeCreate.description',
       'recipeCreate.expense',
-      'recipeCreate.category',
+      'recipeCreate.meal',
       'recipeCreate.nutritionForm',
       'recipeCreate.times.preparation',
       'recipeCreate.times.cooking',

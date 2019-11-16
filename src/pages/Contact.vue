@@ -27,11 +27,5 @@ export default {
   //     return this.$Amplify.API.get(apiName, path, myInit)
   //   }
   // },
-  created () {
-    this.$store.dispatch('recipe/fetchUserRecipes')
-    // this.getRecipes()
-    //   .then(response => console.log(response))
-    //   .catch(error => console.log(error))
-  }
 }
 </script>
