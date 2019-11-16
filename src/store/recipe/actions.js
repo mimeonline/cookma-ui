@@ -16,6 +16,7 @@ export function storeRecipe ({ getters, commit }) {
       // TODO URL have to configure in a central place is temporaryly a fix value for prototyping
       let response = await axios.post('http://localhost:8080/recipes', recipeCreate)
       console.log(response.data)
+      this.$router.push({ path: '/recipe/' + response.data })
     } catch (error) {
       console.log(error)
     }
