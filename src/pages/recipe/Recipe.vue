@@ -54,7 +54,7 @@
           </q-card-section>
 
           <q-card-section>
-            <div class="row justify-center q-gutter-lg">
+            <div class="row justify-center">
               <div class="col-auto">
                 <div>
                   <q-knob
@@ -67,7 +67,7 @@
                     track-color="lime-2"
                     size="80px"
                     font-size="16px"
-                    class="q-ma-md"
+                    class="q-ma-sm q-ma-md-md"
                   >
                     <div class="column ">
                       <div class="col text-center">45</div>
@@ -77,7 +77,7 @@
                 </div>
                 <div class="text-center">Zubereitung</div>
               </div>
-              <div class="col-auto">
+              <div class="col-auto q-px-sm-xl">
                 <div>
                   <q-knob
                     show-value
@@ -89,7 +89,7 @@
                     track-color="lime-2"
                     size="80px"
                     font-size="16px"
-                    class="q-ma-md"
+                    class="q-ma-sm q-ma-md-md"
                   >
                     <div class="column text-center">
                       <div class="col ">0</div>
@@ -111,7 +111,7 @@
                     track-color="lime-2"
                     size="80px"
                     font-size="16px"
-                    class="q-ma-md"
+                    class="q-ma-sm q-ma-md-md"
                   >
                     <div class="column text-center">
                       <div class="col ">0</div>
