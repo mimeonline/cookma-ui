@@ -70,7 +70,7 @@
                     class="q-ma-sm q-ma-md-md"
                   >
                     <div class="column ">
-                      <div class="col text-center">45</div>
+                      <div class="col text-center">{{ recipe.times.preparation }}</div>
                       <div class="col text-center">Min.</div>
                     </div>
                   </q-knob>
@@ -92,7 +92,7 @@
                     class="q-ma-sm q-ma-md-md"
                   >
                     <div class="column text-center">
-                      <div class="col ">0</div>
+                      <div class="col ">{{ recipe.times.cooking }}</div>
                       <div class="col ">Min.</div>
                     </div>
                   </q-knob>
@@ -114,7 +114,7 @@
                     class="q-ma-sm q-ma-md-md"
                   >
                     <div class="column text-center">
-                      <div class="col ">0</div>
+                      <div class="col ">{{ recipe.times.rest }}</div>
                       <div class="col ">Min.</div>
                     </div>
                   </q-knob>
