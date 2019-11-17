@@ -1,23 +1,27 @@
 <template>
-  <q-page padding>
-    <div class="row justify-center q-gutter-lg q-pb-lg">
-      <div
-        class="col-3"
-        style=" max-width: 300px;"
-        v-for="(recipe, index) in myRecipes.myRecipes"
-        :key="index"
-      >
-        <q-card>
-          <router-link :to="'recipe/' + recipe.recipeId">
-            <!-- <q-img :src="recipe.imageId" /> -->
-            <q-img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Spaghetti_bolognese_pasta.jpg/1600px-Spaghetti_bolognese_pasta.jpg" />
-          </router-link>
-
-          <q-card-section>
-            {{ recipe.name }}
-          </q-card-section>
-        </q-card>
+  <q-page>
+    <div class="row justify-center">
+      <div class="col-auto gt-sm"></div>
+      <div class="col" style="max-width:1024px;">
+        <div class="text-h3 text-lime-9 q-pt-md q-pl-md">Meine Rezepte</div>
+        <div class="row" >
+          <div
+            class="col-xs-6 col-sm-4 col-md-3 q-pa-sm-md q-pa-xs-sm c-card"
+            v-for="(recipe, index) in myRecipes.myRecipes"
+            :key="index"
+          >
+            <q-card>
+              <router-link :to="'recipe/' + recipe.recipeId">
+                <q-img :src="recipe.imageId" />
+              </router-link>
+              <q-card-section>
+                {{ recipe.name }}
+              </q-card-section>
+            </q-card>
+          </div>
+        </div>
       </div>
+      <div class="col-auto gt-sm"></div>
     </div>
   </q-page>
 </template>
@@ -38,6 +42,6 @@ export default {
 
 <style>
 .c-card {
-  max-width: 250px;
+  max-width: 300px;
 }
 </style>
