@@ -2,6 +2,15 @@
   <q-layout view="hHh lpr fff">
     <q-header elevated class="bg-lime-7 text-grey-9">
       <q-toolbar>
+        <q-btn flat dense icon="menu" class="mobile-only" v-if="isLoggined">
+          <q-menu>
+            <q-list>
+              <q-item clickable to="/">
+                <q-item-section>Timeline</q-item-section>
+              </q-item>
+            </q-list>
+          </q-menu>
+        </q-btn>
         <q-toolbar-title>
           <router-link to="/" style="text-decoration: none">
             Cookma - The social Cooking App
@@ -15,7 +24,6 @@
           <amplify-authenticator :authConfig="authConfig"></amplify-authenticator>
         </q-dialog>
         <q-btn flat label="Abmelden" @click="signOut" class="q-pr-lg" v-if="isLoggined" />
-
       </q-toolbar>
     </q-header>
 
@@ -30,7 +38,7 @@
           <div><router-link to="/aboutus">Über uns</router-link></div>
           <div><router-link to="/contact">Kontakt</router-link></div>
         </div>
-        <div class="col-auto q-pl-lg" style="width:100px;"><q-separator vertical style="margin:0 auto;"/></div>
+        <div class="col-auto q-pl-lg" style="width:100px;"><q-separator vertical style="margin:0 auto;" /></div>
         <div class="col-auto q-gutter-sm q-px-md">
           <div class="text-weight-bold">Daten</div>
           <div><router-link to="/imprint">Impressum</router-link></div>
@@ -41,7 +49,7 @@
             <router-link to="/usercondition">Nutzerbedingung</router-link>
           </div>
         </div>
-        <div class="col-auto q-pr-md" style="width:100px;"><q-separator vertical style="margin:0 auto;"/></div>
+        <div class="col-auto q-pr-md" style="width:100px;"><q-separator vertical style="margin:0 auto;" /></div>
         <div class="col-auto q-gutter-sm">
           <div class="text-weight-bold">Heute schon gekocht?</div>
           <div>Hole Dir inspirationen von zahlreichen leckeren Rezepten.</div>
@@ -100,7 +108,6 @@ export default {
       set: function (value) {
         this.$store.commit('userprofile/showLoginDialog', value)
       }
-
     }
   },
   components: {
