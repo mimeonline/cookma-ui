@@ -8,7 +8,7 @@
         <div class="col-xs-8 col-sm q-pt-sm-xs q-pr-sm-md" style="max-width: 160px;">
           <q-select v-model="ingredient.unit" label="Einheit" :options="['g', 'kg', 'St.']" filled>
             <template v-slot:prepend>
-              <q-icon name="fas fa-weight" style="font-size: 0.8em;"/>
+              <q-icon name="fas fa-weight" color="lime-9" style="font-size: 0.7em;"/>
             </template>
           </q-select>
         </div>

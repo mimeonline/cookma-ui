@@ -25,7 +25,7 @@
       <div class="col-xs-12 col-sm q-pt-sm-xs">
         <q-select v-model="expense" :options="['Leicht', 'Mittel', 'Schwer']" label="Aufwand" filled>
           <template v-slot:before>
-            <q-icon name="fas fa-exclamation" />
+            <q-icon name="fas fa-exclamation" color="lime-9" />
           </template>
         </q-select>
       </div>
@@ -37,7 +37,7 @@
           filled
         >
           <template v-slot:before>
-            <q-icon name="fas fa-utensils" />
+            <q-icon name="fas fa-utensils" color="lime-9" />
           </template>
         </q-select>
       </div>
@@ -49,7 +49,7 @@
           filled
         >
           <template v-slot:before>
-            <q-icon name="fas fa-carrot" />
+            <q-icon name="fas fa-carrot" color="lime-9" />
           </template>
         </q-select>
       </div>
@@ -58,7 +58,7 @@
       <div class="col">
         <q-input v-model="preparation" label="Zubereitungszeit" type="number" filled>
           <template v-slot:append>
-            <q-icon name="access_time">
+            <q-icon name="access_time" color="lime-9">
               <q-tooltip>Zubereitungszeit</q-tooltip>
             </q-icon>
           </template>
@@ -67,7 +67,7 @@
       <div class="col q-pl-md">
         <q-input v-model="cooking" label="Koch-/Backzeit" type="number" filled>
           <template v-slot:append>
-            <q-icon name="access_time">
+            <q-icon name="access_time" color="lime-9">
               <q-tooltip>Koch-/Backzeit</q-tooltip>
             </q-icon>
           </template>
@@ -76,7 +76,7 @@
       <div class="col q-pl-md">
         <q-input v-model="rest" label="Ruhezeit" type="number" filled>
           <template v-slot:append>
-            <q-icon name="access_time">
+            <q-icon name="access_time" color="lime-9">
               <q-tooltip>Ruhezeit</q-tooltip>
             </q-icon>
           </template>
