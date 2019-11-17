@@ -59,3 +59,16 @@ export function fetchRecipe (context, recipeId) {
 export function mockRecipe (context) {
   context.commit('setRecipe', recipe)
 }
+
+export function deleteRecipe (context, recipeId) {
+  ;(async () => {
+    try {
+      // TODO URL have to configure in a central place is temporaryly a fix value for prototyping
+      let response = await axios.delete('http://localhost:8080/recipes/' + recipeId)
+      console.log(response.data)
+      this.$router.push({ path: '/myRecipes' })
+    } catch (error) {
+
+    }
+  })()
+}

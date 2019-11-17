@@ -3,14 +3,31 @@
     <div class="row justify-center">
       <div class="col-auto q-pr-lg gt-sm">
         <q-list class="col-auto">
-          <q-item clickable v-ripple>
+          <q-item clickable v-ripple to="/myrecipes">
             <q-item-section avatar>
               <q-avatar color="lime-9" text-color="white" icon="fas fa-utensils" />
             </q-item-section>
+            <q-item-section>Meine Rezepte</q-item-section>
+          </q-item>
+
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-avatar color="lime-9" text-color="white" icon="fas fa-edit" />
+            </q-item-section>
             <q-item-section>
-              <router-link to="/myrecipes">Meine Rezepte</router-link>
+              <span class="text-lime-9">Rezept ändern</span>
             </q-item-section>
           </q-item>
+
+          <q-item clickable v-ripple @click="deleteRecipe">
+            <q-item-section avatar>
+              <q-avatar color="lime-9" text-color="white" icon="fas fa-trash" />
+            </q-item-section>
+            <q-item-section>
+              <span class="text-lime-9">Rezept löschen</span>
+            </q-item-section>
+          </q-item>
+
         </q-list>
       </div>
 
@@ -161,18 +178,10 @@
           </q-card-section>
           <q-separator />
           <q-card-section>
-            Jeden  Tag ein neues Gericht!
+            Jeden Tag ein neues Gericht!
           </q-card-section>
         </q-card>
-        <div class="q-pt-md">
-          <router-link to="/imprint">Immpressum</router-link> | <router-link to="contact">Kontakt</router-link> |
-          <router-link to="aboutus">Über uns</router-link> |
-          <router-link to="privacy">Datenschutzerklärung</router-link> |
-          <router-link to="usercondition">Nutzerbedingung</router-link>
-        </div>
-        <div>
-          Cookma &copy; 2019
-        </div>
+
       </div>
     </div>
   </q-page>
@@ -187,6 +196,11 @@ export default {
   },
   created () {
     this.$store.dispatch('recipe/fetchRecipe', this.$route.params.recipId)
+  },
+  methods: {
+    deleteRecipe () {
+      this.$store.dispatch('recipe/deleteRecipe', this.$route.params.recipId)
+    }
   }
 }
 </script>

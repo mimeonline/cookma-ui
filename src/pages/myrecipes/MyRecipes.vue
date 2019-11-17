@@ -11,7 +11,7 @@
             :key="index"
           >
             <q-card>
-              <router-link :to="'recipe/' + recipe.recipeId">
+              <router-link :to="'/recipe/' + recipe.recipeId">
                 <q-img :src="recipe.imageId" />
               </router-link>
               <q-card-section>
