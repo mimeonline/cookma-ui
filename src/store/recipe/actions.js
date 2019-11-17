@@ -24,12 +24,12 @@ export function storeRecipe ({ getters, commit }) {
 }
 
 export function uploadRecipeImage (context, files) {
-  let uploaData = new FormData()
-  uploaData.append('file', files[0])
+  let uploadData = new FormData()
+  uploadData.append('file', files[0])
   // Promise is needed because QUploader wants to returned a Promise
   return new Promise((resolve, reject) => {
     axios
-      .post('http://localhost:4444/upload', uploaData, {
+      .post('http://localhost:4444/upload', uploadData, {
         headers: {
           'Content-Type': undefined
         }

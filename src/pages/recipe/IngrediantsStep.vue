@@ -1,31 +1,23 @@
 <template>
-  <div  class="c-step-body">
-    <div v-for="(ingredient, index) in ingredients" :key="index" >
-
+  <div class="c-step-body">
+    <div class="q-pb-xs-lg q-pb-sm-xs" v-for="(ingredient, index) in ingredients" :key="index">
       <div class="row q-pt-md-md">
-        <div class="col-xs-2 col" style="max-width: 70px;">
-          <q-input v-model="ingredient.count" type="number" label="Menge" filled/>
+        <div class="col-xs-4 col-sm q-pr-xs-sm q-pt-sm-xs q-pr-sm-md" style="max-width:90px;">
+          <q-input v-model="ingredient.count" type="number" label="Menge" filled />
         </div>
-        <div class="col-2 q-pl-xs-xs q-pl-md-md" style="max-width: 130px;">
-          <q-select
-            v-model="ingredient.unit"
-            label="Einheit"
-            :options="['g', 'kg', 'St.']"
-            filled
-          />
+        <div class="col-xs-8 col-sm q-pt-sm-xs q-pr-sm-md" style="max-width: 160px;">
+          <q-select v-model="ingredient.unit" label="Einheit" :options="['g', 'kg', 'St.']" filled>
+            <template v-slot:prepend>
+              <q-icon name="fas fa-weight" style="font-size: 0.8em;"/>
+            </template>
+          </q-select>
         </div>
-        <div class="col  q-pl-xs-xs q-pl-md-md">
-          <q-input v-model="ingredient.name" label="Zutat" filled/>
-        </div>
-        <div class="col-auto self-end">
-          <q-btn
-            :id="index"
-            flat
-            round
-            color="red-10"
-            icon="delete"
-            @click="removeIngredient(index)"
-          />
+        <div class="col-xs-12 col-sm q-pt-xs-sm q-pt-sm-xs">
+          <q-input v-model="ingredient.name" label="Zutat" filled >
+             <template v-slot:append>
+              <q-btn :id="index" flat round color="red-10" icon="delete" @click="removeIngredient(index)" />
+            </template>
+          </q-input>
         </div>
       </div>
     </div>
@@ -41,9 +33,7 @@ import { mapMultiRowFields } from 'vuex-map-fields'
 
 export default {
   computed: {
-    ...mapMultiRowFields('recipe', [
-      'recipeCreate.ingredients'
-    ])
+    ...mapMultiRowFields('recipe', ['recipeCreate.ingredients'])
   },
   methods: {
     addIngredient () {

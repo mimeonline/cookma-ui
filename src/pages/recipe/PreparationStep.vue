@@ -1,19 +1,13 @@
 <template>
   <div class="c-step-body">
-    <div v-for="(preparation, index) in preparations" :key="index" >
+    <div v-for="(preparation, index) in preparations" :key="index">
       <div class="row q-pt-xs-xs q-pt-sm-md">
         <div class="col">
-          <q-input filled v-model="preparation.stepDescription" type="textarea" :label="`Schritt ${index+1}`"  />
-        </div>
-        <div class="co self-end">
-          <q-btn
-            :id="index"
-            flat
-            round
-            color="red-10"
-            icon="delete"
-            @click="removePreparation(index)"
-          />
+          <q-input filled v-model="preparation.stepDescription" type="textarea" :label="`Schritt ${index + 1}`">
+            <template v-slot:append>
+              <q-btn :id="index" flat round color="red-10" icon="delete" @click="removePreparation(index)" />
+            </template>
+          </q-input>
         </div>
       </div>
     </div>
@@ -29,9 +23,7 @@ import { mapMultiRowFields } from 'vuex-map-fields'
 
 export default {
   computed: {
-    ...mapMultiRowFields('recipe', [
-      'recipeCreate.preparations'
-    ])
+    ...mapMultiRowFields('recipe', ['recipeCreate.preparations'])
   },
   methods: {
     addPreparation () {
