@@ -22,8 +22,9 @@ export function removeIngredient (state, index) {
   state.recipeCreate.ingredients.splice(index, 1)
 }
 
-export function addPreparation (state, Preparation) {
-  state.recipeCreate.preparations.push(Preparation)
+export function addPreparation (state, preparation) {
+  preparation.step = state.recipeCreate.preparations.length + 1
+  state.recipeCreate.preparations.push(preparation)
 }
 
 export function removePreparation (state, index) {
@@ -32,4 +33,8 @@ export function removePreparation (state, index) {
 
 export function setImageId (state, imageId) {
   state.recipeCreate.images[0].imageId = imageId
+}
+
+export function setIsEditRecipe (state, isEdit) {
+  state.isEditRecipe = isEdit
 }

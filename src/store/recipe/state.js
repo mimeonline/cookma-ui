@@ -79,5 +79,6 @@ export default {
       userName: '',
       avatar: ''
     }
-  }
+  },
+  isEditRecipe: false
 }

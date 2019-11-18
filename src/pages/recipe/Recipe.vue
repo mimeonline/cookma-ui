@@ -15,7 +15,7 @@
               <q-avatar color="lime-9" text-color="white" icon="fas fa-edit" />
             </q-item-section>
             <q-item-section>
-              <span class="text-lime-9">Rezept ändern</span>
+              <span class="text-lime-9" @click="editRecipe">Rezept ändern</span>
             </q-item-section>
           </q-item>
 
@@ -200,6 +200,9 @@ export default {
   methods: {
     deleteRecipe () {
       this.$store.dispatch('recipe/deleteRecipe', this.$route.params.recipId)
+    },
+    editRecipe () {
+      this.$store.dispatch('recipe/editRecipe', this.$route.params.recipId)
     }
   }
 }

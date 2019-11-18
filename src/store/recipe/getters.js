@@ -5,3 +5,7 @@ export function recipe (state) {
 export function recipeCreate (state) {
   return state.recipeCreate
 }
+
+export function isEditRecipe (state) {
+  return state.isEditRecipe
+}

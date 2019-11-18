@@ -114,7 +114,11 @@ export default {
   methods: {
     nextStepOrSaveRecipe (step) {
       if (step === 4) {
-        this.$store.dispatch('recipe/storeRecipe')
+        if (this.$store.getters['recipe/isEditRecipe']) {
+          this.$store.dispatch('recipe/updateRecipe')
+        } else {
+          this.$store.dispatch('recipe/storeRecipe')
+        }
       } else {
         this.$refs.stepper.next()
       }

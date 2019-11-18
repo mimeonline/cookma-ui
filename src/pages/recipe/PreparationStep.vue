@@ -28,7 +28,8 @@ export default {
   methods: {
     addPreparation () {
       this.$store.commit('recipe/addPreparation', {
-        prepStep: ''
+        step: 1,
+        stepDescription: ''
       })
     },
     removePreparation (index) {
