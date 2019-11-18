@@ -1,5 +1,6 @@
 // import { LocalStorage, uid } from 'quasar'
 import { axios } from 'boot/axios'
+import { Notify } from 'quasar'
 import Amplify from '@aws-amplify/core'
 
 import { recipe } from '../../statics/data/recipe'
@@ -37,21 +38,19 @@ const emptyRecipeCreate = {
   userId: ''
 }
 
-export function storeRecipe ({ getters, commit }) {
+export function storeRecipe ({ getters, commit, dispatch }) {
   (async () => {
     try {
       var currentUser = await Amplify.Auth.currentAuthenticatedUser()
-      console.log(currentUser.attributes.sub)
       commit('setUserId', currentUser.attributes.sub)
       commit('setImageId', 'statics/images/food-1932466_640.jpg')
       var recipeCreate = getters['recipeCreate']
-      console.log(recipeCreate)
       // TODO URL have to configure in a central place is temporaryly a fix value for prototyping
       let response = await axios.post('http://localhost:8080/recipes', recipeCreate)
-      console.log(response.data)
+      dispatch('resetCreateRecipe')
       this.$router.push({ path: '/recipe/' + response.data })
     } catch (error) {
-      console.log(error)
+      createNotify(error)
     }
   })()
 }
@@ -81,7 +80,6 @@ export function fetchRecipe (context, recipeId) {
     try {
       // TODO URL have to configure in a central place is temporaryly a fix value for prototyping
       let response = await axios.get('http://localhost:8080/recipes/' + recipeId)
-      console.log(response.data)
       context.commit('setRecipe', response.data)
     } catch (error) {
       mockRecipe(context)
@@ -97,11 +95,10 @@ export function deleteRecipe (context, recipeId) {
   ;(async () => {
     try {
       // TODO URL have to configure in a central place is temporaryly a fix value for prototyping
-      let response = await axios.delete('http://localhost:8080/recipes/' + recipeId)
-      console.log(response.data)
+      await axios.delete('http://localhost:8080/recipes/' + recipeId)
       this.$router.push({ path: '/myRecipes' })
     } catch (error) {
-
+      createNotify(error)
     }
   })()
 }
@@ -120,19 +117,23 @@ export function updateRecipe ({ getters, commit, dispatch }) {
   (async () => {
     try {
       var recipeCreate = getters['recipeCreate']
-      console.log(recipeCreate)
       // TODO URL have to configure in a central place is temporaryly a fix value for prototyping
       var recipe = getters['recipe']
-      let response = await axios.patch('http://localhost:8080/recipes/' + recipe.recipeId, recipeCreate)
-      console.log(response.data)
+      await axios.patch('http://localhost:8080/recipes/' + recipe.recipeId, recipeCreate)
       commit('setIsEditRecipe', false)
       dispatch('resetCreateRecipe')
       this.$router.push({ path: '/recipe/' + recipe.recipeId })
     } catch (error) {
-      console.log(error)
+      createNotify(error)
     }
   })()
+}
 
-  console.log('Update Recipe')
-  // Patch the Recipe on BAckend
+function createNotify (error) {
+  Notify.create({
+    message: error,
+    color: 'negative',
+    icon: 'report_problem',
+    position: 'center'
+  })
 }
