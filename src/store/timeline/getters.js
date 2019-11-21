@@ -1,5 +1,5 @@
-export function timelineCards (state) {
-  return state.timelineCards
+export function timelineRecipes (state) {
+  return state.timelineRecipes
 }
 
 export function recipeCreate (state) {

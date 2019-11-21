@@ -1,7 +1,7 @@
-export function timelineCard (state, card) {
-  state.timelineCards.push(card)
+export function timelineRecipe (state, recipe) {
+  state.timelineCards.push(recipe)
 }
 
-export function timelineCards (state, cards) {
-  state.timelineCards = cards
+export function timelineRecipes (state, recipe) {
+  state.timelineRecipes = recipe
 }

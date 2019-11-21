@@ -1,43 +1,21 @@
 export default {
-  timelineCards: [
+  timelineRecipes: [
     {
-      user: {
-        userId: '',
-        name: '',
-        avatar: ''
-      },
+      timelineRecipeId: '',
       recipe: {
         recipeId: '',
-        name: '',
+        recipeName: '',
+        imageId: '',
         description: '',
-        image: '',
-        times: {
-          preparation: 0
-        },
-        effort: ''
+        expense: '',
+        time: 0
       },
-      rating: {
-        value: 0,
-        number: 0
+      user: {
+        userId: '',
+        userName: '',
+        avatarId: ''
       },
-      like: {
-        value: 0,
-        number: 0
-      },
-      created: ''
+      lastModificationDate: ''
     }
-  ],
-  recipe: {
-    name: '',
-    description: '',
-    expense: [],
-    category: [],
-    nutritionForm: [],
-    times: {
-      preparation: 0,
-      cooking: 0,
-      rest: 0
-    }
-  },
-  counter: 1
+  ]
 }

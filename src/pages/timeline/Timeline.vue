@@ -30,8 +30,8 @@
           <RecipeName />
         </div>
         <div class="row justify-center">
-          <div class="col-auto full-width" v-for="card in timelineCards" :key="card.recipe.id">
-            <Card :card="card" />
+          <div class="col-auto full-width" v-for="timelineRecipe in timelineRecipes" :key="timelineRecipe.recipe.id">
+            <Card :timelineRecipe="timelineRecipe" />
           </div>
         </div>
       </div>
@@ -70,17 +70,17 @@ import Card from './Card.vue'
 import RecipeName from '../timeline/RecipeName'
 
 export default {
-  name: 'Timeline',
   computed: {
-    timelineCards () {
-      return this.$store.getters['timeline/timelineCards']
+    timelineRecipes () {
+      return this.$store.getters['timeline/timelineRecipes']
     },
     isLoggined () {
       return this.$store.getters['userprofile/isLoggined']
     }
   },
   created () {
-    this.$store.dispatch('timeline/mockTimelineCards')
+    this.$store.dispatch('timeline/fetchTimelineRecipes')
+    // this.$store.dispatch('timeline/mockTimelineRecipes')
   },
   components: {
     Card,
