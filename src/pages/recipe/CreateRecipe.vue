@@ -131,8 +131,7 @@ export default {
       if (step === 3) {
         this.isIngredientsError = this.$refs.ingrediants.$v.$invalid
       }
-      if (step === 4 && !this.$refs.preparations.$v.$invalid) {
-        this.$refs.preparations.$v.$touch()
+      if (step === 4) {
         this.isPreparationsError = this.$refs.preparations.$v.$invalid
         if (this.$store.getters['recipe/isEditRecipe']) {
           this.$store.dispatch('recipe/updateRecipe')
