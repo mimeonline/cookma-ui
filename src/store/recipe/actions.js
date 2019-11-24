@@ -45,6 +45,7 @@ export function storeRecipe ({ getters, commit, dispatch }) {
       commit('setUserId', currentUser.attributes.sub)
       commit('setImageId', 'statics/images/food-1932466_640.jpg')
       var recipeCreate = getters['recipeCreate']
+      console.log(recipeCreate)
       // TODO URL have to configure in a central place is temporaryly a fix value for prototyping
       let response = await axios.post('http://localhost:8080/recipes', recipeCreate)
       dispatch('resetCreateRecipe')

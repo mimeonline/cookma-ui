@@ -15,6 +15,7 @@ export function setUserId (state, userId) {
 }
 
 export function addIngredient (state, ingredient) {
+  ingredient.position = state.recipeCreate.ingredients.length + 1
   state.recipeCreate.ingredients.push(ingredient)
 }
 

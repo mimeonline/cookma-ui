@@ -3,10 +3,12 @@
     <div class="row">
       <div class="col">
         <q-input
-          v-model="name"
+          v-model="$v.name.$model"
           label="Rezeptname"
           filled
           hint="Der Titel des Gerichts z.B. Feldsalat mit Balsamico-Vinaigrette"
+          error-message="Bitte gib einen Rezept Namen ein."
+          :error="$v.name.$error"
         />
       </div>
     </div>
@@ -83,13 +85,23 @@
         </q-input>
       </div>
     </div>
+    <!-- <div>{{ $v }}</div> -->
   </div>
 </template>
 
 <script>
 import { mapFields } from 'vuex-map-fields'
+import { maxLength, required } from 'vuelidate/lib/validators'
 
 export default {
+  validations () {
+    return {
+      name: {
+        required,
+        maxLength: maxLength(200)
+      }
+    }
+  },
   computed: {
     ...mapFields('recipe', [
       'recipeCreate.name',

@@ -18,6 +18,7 @@ export default {
     },
     ingredients: [
       {
+        position: 1,
         count: 1,
         unit: '',
         name: ''

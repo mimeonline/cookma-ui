@@ -9,16 +9,18 @@
           </q-card-section>
 
           <q-card-section>
-            <q-stepper v-model="step" ref="stepper" animated flat header-nav>
+            <q-stepper v-model="step" ref="stepper" animated flat :contracted="$q.screen.lt.sm" >
               <q-step
                 :name="1"
                 title="Rezept"
                 icon="fas fa-book"
+                prefix="A"
                 active-color="lime-9"
                 done-color="lime-9"
-                :done="step > 1"
+                :done="step > 1 && !isRecipeError"
+                :error="isRecipeError"
               >
-                <RecipeStep />
+                <RecipeStep ref="recipe" />
               </q-step>
 
               <q-step
@@ -29,6 +31,7 @@
                 active-color="lime-8"
                 done-color="lime-9"
                 :done="step > 2"
+                disable
                 ><ImageStep />
               </q-step>
 
@@ -40,8 +43,9 @@
                 active-color="lime-8"
                 done-color="lime-9"
                 :done="step > 3"
+                :error="isIngredientsError"
               >
-                <IngrediantsStep />
+                <IngrediantsStep ref="ingrediants" />
               </q-step>
 
               <q-step
@@ -51,8 +55,9 @@
                 color="lime-7"
                 active-color="lime-8"
                 done-color="lime-9"
+                :error="isPreparationsError"
               >
-                <PreparationStep />
+                <PreparationStep ref="preparations" />
               </q-step>
 
               <template v-slot:navigation>
@@ -70,6 +75,7 @@
                     <q-btn
                       @click="nextStepOrSaveRecipe(step)"
                       color="lime-9"
+                      :disable="isDisableSave"
                       :label="step === 4 ? 'speichern' : 'weiter'"
                     />
                   </q-toolbar>
@@ -81,9 +87,7 @@
           <q-card-section class="bg-lime-3">
             <div class="q-pt-md">
               <q-icon name="fas fa-question" />
-              <span class="text-weight-small">
-                Hast Du Fragen zur Rezepteingabe?</span
-              >
+              <span class="text-weight-small"> Hast Du Fragen zur Rezepteingabe?</span>
             </div>
           </q-card-section>
         </q-card>
@@ -102,7 +106,10 @@ import PreparationStep from './PreparationStep'
 export default {
   data () {
     return {
-      step: 1
+      step: 1,
+      isRecipeError: false,
+      isIngredientsError: false,
+      isPreparationsError: false
     }
   },
   components: {
@@ -111,9 +118,22 @@ export default {
     IngrediantsStep,
     PreparationStep
   },
+  computed: {
+    isDisableSave () {
+      return this.step === 4 && (this.isRecipeError || this.isIngredientsError || this.isPreparationsError)
+    }
+  },
   methods: {
     nextStepOrSaveRecipe (step) {
-      if (step === 4) {
+      if (step === 1) {
+        this.isRecipeError = this.$refs.recipe.$v.$invalid
+      }
+      if (step === 3) {
+        this.isIngredientsError = this.$refs.ingrediants.$v.$invalid
+      }
+      if (step === 4 && !this.$refs.preparations.$v.$invalid) {
+        this.$refs.preparations.$v.$touch()
+        this.isPreparationsError = this.$refs.preparations.$v.$invalid
         if (this.$store.getters['recipe/isEditRecipe']) {
           this.$store.dispatch('recipe/updateRecipe')
         } else {

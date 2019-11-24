@@ -144,7 +144,7 @@
           <q-card-section>
             <div class="text-h5">Zutaten</div>
             <div class="q-py-sm">Portionen: 2</div>
-            <div class="row" v-for="ingredient in recipe.ingredients" :key="ingredient.position">
+            <div class="row" v-for="(ingredient, index) in recipe.ingredients" :key="index">
               <div class="col-auto q-px-lg">{{ ingredient.count }} {{ ingredient.unit }}</div>
               <div class="col">{{ ingredient.name }}</div>
             </div>
