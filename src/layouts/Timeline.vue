@@ -100,7 +100,6 @@ export default {
         .then(data => {
           this.$store.dispatch('userprofile/logout')
         })
-        .catch(err => console.log(err))
     }
   }
 }
